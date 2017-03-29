@@ -11,11 +11,11 @@ namespace battleship
             SwinGame.OpenGraphicsWindow("Battle Ships", 800, 600);
             // Load Resources
             GameResources.LoadResources();
-            SwinGame.PlayMusic(GameMusic("Background"));
+            SwinGame.PlayMusic(GameResources.GameMusic("Background"));
             // Game Loop
             for (
             ; (((SwinGame.WindowCloseRequested() == true)
-                        || (CurrentState == GameState.Quitting))
+                        || (GameController.CurrentState == GameState.Quitting))
                         == false);
             ) {
                 HandleUserInput();
