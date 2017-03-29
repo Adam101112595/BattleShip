@@ -24,7 +24,7 @@ namespace battleship
 
             SwinGame.StopMusic();
             // Free Resources and Close Audio, to end the program.
-            FreeResources();
+            GameResources.FreeResources();
         }
     }
 }
