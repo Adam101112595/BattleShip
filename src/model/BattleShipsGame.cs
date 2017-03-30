@@ -23,7 +23,7 @@ namespace battleship
         public event AttackCompletedHandler AttackCompleted;
 
         private int _playerIndex = 0;
-        private Player[] _players;
+        private Player[] _players = new Player[2];
 
         // '' <summary>
         // '' The current player.
@@ -35,20 +35,20 @@ namespace battleship
         {
             get
             {
-                return _players(_playerIndex);
+                return _players[_playerIndex];
             }
         }
 
         public void AddDeployedPlayer(Player p)
         {
-            if ((_players(0) == null))
+            if ((_players[0] == null))
             {
-                _players(0) = p;
+                _players[0] = p;
             }
-            else if ((_players(1) == null))
+            else if ((_players[1] == null))
             {
-                _players(1) = p;
-                this.CompleteDeployment();
+                _players[1] = p;
+                CompleteDeployment();
             }
             else
             {
@@ -63,8 +63,8 @@ namespace battleship
         // '' </summary>
         private void CompleteDeployment()
         {
-            _players(0).Enemy = new SeaGridAdapter(_players(1).PlayerGrid);
-            _players(1).Enemy = new SeaGridAdapter(_players(0).PlayerGrid);
+            _players[0].Enemy = new SeaGridAdapter(_players[1].PlayerGrid);
+            _players[1].Enemy = new SeaGridAdapter(_players[0].PlayerGrid);
         }
 
         // '' <summary>
@@ -81,7 +81,7 @@ namespace battleship
                         % 2);
             newAttack = Player.Shoot(row, col);
             // Will exit the game when all players ships are destroyed
-            if (_players(otherPlayer).IsDestroyed)
+            if (_players[otherPlayer].IsDestroyed)
             {
                 newAttack = new AttackResult(ResultOfAttack.GameOver, newAttack.Ship, newAttack.Text, row, col);
             }
