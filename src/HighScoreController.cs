@@ -147,7 +147,7 @@ namespace battleship
         public static void HandleHighScoreInput()
         {
             if ((SwinGame.MouseClicked(MouseButton.LeftButton)
-                        || (SwinGame.KeyTyped(KeyCode.VK_ESCAPE) || SwinGame.KeyTyped(KeyCode.VK_RETURN))))
+                        || (SwinGame.KeyTyped(KeyCode.vk_ESCAPE) || SwinGame.KeyTyped(KeyCode.vk_RETURN))))
             {
                 EndCurrentState();
             }

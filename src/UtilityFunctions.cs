@@ -2,6 +2,7 @@
 // '' This includes a number of utility methods for
 // '' drawing and interacting with the Mouse.
 // '' </summary>
+using System.Collections.Generic;
 using SwinGameSDK;
 
 namespace battleship

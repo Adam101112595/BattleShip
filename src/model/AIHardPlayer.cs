@@ -6,10 +6,12 @@
 // '' the AI knows it has hit multiple ships. Then will try to destoy all around tiles
 // '' that have been hit.
 // '' </summary>
+using System.Collections.Generic;
+
 namespace battleship
 {
 
-    public class AIHardPlayer
+    public class AIHardPlayer : AIPlayer
     {
 
         // '' <summary>
@@ -19,9 +21,9 @@ namespace battleship
         class Target
         {
 
-            private Location _ShotAt;
+            private readonly Location _ShotAt;
 
-            private Location _Source;
+            private readonly Location _Source;
 
             // '' <summary>
             // '' The target shot at
@@ -58,7 +60,7 @@ namespace battleship
             {
                 get
                 {
-                    return;
+                    return _ShotAt.Row == _Source.Row;
                 }
             }
 
@@ -66,7 +68,7 @@ namespace battleship
             {
                 get
                 {
-                    return;
+                    return _ShotAt.Column == _Source.Column;
                 }
             }
         }

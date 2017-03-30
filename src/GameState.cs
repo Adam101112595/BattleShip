@@ -3,8 +3,6 @@
 // '' This is used to control the actions and view displayed to
 // '' the player.
 // '' </summary>
-using System;
-using SwinGameSDK;
 
 namespace battleship
 {

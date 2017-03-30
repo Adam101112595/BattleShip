@@ -3,10 +3,12 @@
 // '' The AIMediumPlayer is a type of AIPlayer where it will try and destroy a ship
 // '' if it has found a ship
 // '' </summary>
+using System.Collections.Generic;
+
 namespace battleship
 {
 
-    public class AIMediumPlayer
+    public class AIMediumPlayer : AIPlayer
     {
 
         // '' <summary>

@@ -51,22 +51,22 @@ namespace battleship
         // '' </remarks>
         public static void HandleDeploymentInput()
         {
-            if (SwinGame.KeyTyped(KeyCode.VK_ESCAPE))
+            if (SwinGame.KeyTyped(KeyCode.vk_ESCAPE))
             {
                 AddNewState(GameState.ViewingGameMenu);
             }
 
-            if ((SwinGame.KeyTyped(KeyCode.VK_UP) || SwinGame.KeyTyped(KeyCode.VK_DOWN)))
+            if ((SwinGame.KeyTyped(KeyCode.vk_UP) || SwinGame.KeyTyped(KeyCode.VK_DOWN)))
             {
                 _currentDirection = Direction.UpDown;
             }
 
-            if ((SwinGame.KeyTyped(KeyCode.VK_LEFT) || SwinGame.KeyTyped(KeyCode.VK_RIGHT)))
+            if ((SwinGame.KeyTyped(KeyCode.vk_LEFT) || SwinGame.KeyTyped(KeyCode.VK_RIGHT)))
             {
                 _currentDirection = Direction.LeftRight;
             }
 
-            if (SwinGame.KeyTyped(KeyCode.VK_R))
+			if (SwinGame.KeyTyped(KeyCode.vk_r))
             {
                 HumanPlayer.RandomizeDeployment();
             }
