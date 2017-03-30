@@ -15,11 +15,11 @@ namespace battleship
             // Game Loop
             for (
             ; (((SwinGame.WindowCloseRequested() == true)
-                        || (GameController.CurrentState == GameState.Quitting))
+                        || (CurrentState == GameState.Quitting))
                         == false);
             ) {
-                HandleUserInput();
-                DrawScreen();
+                GameController.HandleUserInput();
+                GameController.DrawScreen();
             }
 
             SwinGame.StopMusic();

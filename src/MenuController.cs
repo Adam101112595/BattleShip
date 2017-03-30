@@ -102,7 +102,7 @@ namespace battleship
         // '' <returns>false if a clicked missed the buttons. This can be used to check prior menus.</returns>
         private static bool HandleMenuInput(int menu, int level, int xOffset)
         {
-            if (SwinGame.KeyTyped(KeyCode.VK_ESCAPE))
+			if (SwinGame.KeyTyped(KeyCode.vk_ESCAPE))
             {
                 EndCurrentState();
                 return true;
@@ -270,13 +270,13 @@ namespace battleship
             switch (button)
             {
                 case MAIN_MENU_PLAY_BUTTON:
-                    StartGame();
+					GameController.StartGame();
                     break;
                 case MAIN_MENU_SETUP_BUTTON:
-                    AddNewState(GameState.AlteringSettings);
+                    GameController.AddNewState(GameState.AlteringSettings);
                     break;
                 case MAIN_MENU_TOP_SCORES_BUTTON:
-                    AddNewState(GameState.ViewingHighScores);
+                    GameController.AddNewState(GameState.ViewingHighScores);
                     break;
                 case MAIN_MENU_QUIT_BUTTON:
                     EndCurrentState();
