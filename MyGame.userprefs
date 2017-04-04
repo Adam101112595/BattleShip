@@ -5,20 +5,24 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="MyGame" expanded="True">
-            <Node name="MyGame" expanded="True">
-              <Node name="src" expanded="True">
-                <Node name="model" expanded="True" />
-                <Node name="UtilityFunctions.cs" selected="True" />
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
+  <MonoDevelop.Ide.Workbench ActiveDocument="src\UtilityFunctions.cs">
+    <Files>
+      <File FileName="src\GameMain.cs" Line="27" Column="43" />
+      <File FileName="src\model\AIHardPlayer.cs" Line="1" Column="1" />
+      <File FileName="src\model\AIMediumPlayer.cs" Line="4" Column="28" />
+      <File FileName="src\model\ISeaGrid.cs" Line="4" Column="17" />
+      <File FileName="src\model\Player.cs" Line="7" Column="1" />
+      <File FileName="src\model\SeaGrid.cs" Line="3" Column="17" />
+      <File FileName="src\model\SeaGridAdapter.cs" Line="4" Column="17" />
+      <File FileName="src\model\Tile.cs" Line="7" Column="2" />
+      <File FileName="src\DeploymentController.cs" Line="4" Column="35" />
+      <File FileName="src\DiscoveryController.cs" Line="5" Column="1" />
+      <File FileName="src\EndingGameController.cs" Line="5" Column="17" />
+      <File FileName="src\GameController.cs" Line="5" Column="67" />
+      <File FileName="src\GameResources.cs" Line="5" Column="2" />
+      <File FileName="src\HighScoreController.cs" Line="6" Column="2" />
+      <File FileName="src\MenuController.cs" Line="3" Column="1" />
+      <File FileName="src\UtilityFunctions.cs" Line="12" Column="6" />
+    </Files>
   </MonoDevelop.Ide.Workbench>
 </Properties>

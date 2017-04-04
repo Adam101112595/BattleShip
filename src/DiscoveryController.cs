@@ -20,7 +20,7 @@ namespace battleship
         {
             if (SwinGame.KeyTyped(KeyCode.vk_ESCAPE))
             {
-                AddNewState(GameState.ViewingGameMenu);
+                GameController.AddNewState(GameState.ViewingGameMenu);
             }
 
             if (SwinGame.MouseClicked(MouseButton.LeftButton))

@@ -1,4 +1,3 @@
-using System;
 using SwinGameSDK;
 
 namespace battleship
@@ -104,7 +103,7 @@ namespace battleship
         {
 			if (SwinGame.KeyTyped(KeyCode.vk_ESCAPE))
             {
-                EndCurrentState();
+                GameController.EndCurrentState();
                 return true;
             }
 
@@ -126,7 +125,7 @@ namespace battleship
                 if ((level > 0))
                 {
                     // none clicked - so end this sub menu
-                    EndCurrentState();
+                    GameController.EndCurrentState();
                 }
 
             }
@@ -279,7 +278,7 @@ namespace battleship
                     GameController.AddNewState(GameState.ViewingHighScores);
                     break;
                 case MAIN_MENU_QUIT_BUTTON:
-                    EndCurrentState();
+                    GameController.EndCurrentState();
                     break;
             }
         }
@@ -303,7 +302,7 @@ namespace battleship
                     break;
             }
             // Always end state - handles exit button as well
-            EndCurrentState();
+            GameController.EndCurrentState();
         }
 
         // '' <summary>
@@ -315,16 +314,16 @@ namespace battleship
             switch (button)
             {
                 case GAME_MENU_RETURN_BUTTON:
-                    EndCurrentState();
+                    GameController.EndCurrentState();
                     break;
                 case GAME_MENU_SURRENDER_BUTTON:
-                    EndCurrentState();
+                    GameController.EndCurrentState();
                     // end game menu
-                    EndCurrentState();
+                    GameController.EndCurrentState();
                     // end game
                     break;
                 case GAME_MENU_QUIT_BUTTON:
-                    AddNewState(GameState.Quitting);
+                    GameController.AddNewState(GameState.Quitting);
                     break;
             }
         }

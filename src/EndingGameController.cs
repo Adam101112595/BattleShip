@@ -38,7 +38,7 @@ namespace battleship
                         || (SwinGame.KeyTyped(KeyCode.vk_RETURN) || SwinGame.KeyTyped(KeyCode.VK_ESCAPE))))
             {
                 ReadHighScore(HumanPlayer.Score);
-                EndCurrentState();
+                GameController.EndCurrentState();
             }
         }
     }
