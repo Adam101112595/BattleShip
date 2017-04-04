@@ -29,29 +29,29 @@ namespace battleship
 
         public const int SHIP_GAP = 3;
 
-        private Color SMALL_SEA = SwinGame.RGBAColor(6, 60, 94, 255);
+        private static readonly Color SMALL_SEA = SwinGame.RGBAColor(6, 60, 94, 255);
 
-        private Color SMALL_SHIP = Color.Gray;
+        private static readonly Color SMALL_SHIP = Color.Gray;
 
-        private Color SMALL_MISS = SwinGame.RGBAColor(1, 147, 220, 255);
+        private static readonly Color SMALL_MISS = SwinGame.RGBAColor(1, 147, 220, 255);
 
-        private Color SMALL_HIT = SwinGame.RGBAColor(169, 24, 37, 255);
+        private static readonly Color SMALL_HIT = SwinGame.RGBAColor(169, 24, 37, 255);
 
-        private Color LARGE_SEA = SwinGame.RGBAColor(6, 60, 94, 255);
+        private static readonly Color LARGE_SEA = SwinGame.RGBAColor(6, 60, 94, 255);
 
-        private Color LARGE_SHIP = Color.Gray;
+        private static readonly Color LARGE_SHIP = Color.Gray;
 
-        private Color LARGE_MISS = SwinGame.RGBAColor(1, 147, 220, 255);
+        private static readonly Color LARGE_MISS = SwinGame.RGBAColor(1, 147, 220, 255);
 
-        private Color LARGE_HIT = SwinGame.RGBAColor(252, 2, 3, 255);
+        private static readonly Color LARGE_HIT = SwinGame.RGBAColor(252, 2, 3, 255);
 
-        private Color OUTLINE_COLOR = SwinGame.RGBAColor(5, 55, 88, 255);
+        private static readonly Color OUTLINE_COLOR = SwinGame.RGBAColor(5, 55, 88, 255);
 
-        private Color SHIP_FILL_COLOR = Color.Gray;
+        private static readonly Color SHIP_FILL_COLOR = Color.Gray;
 
-        private Color SHIP_OUTLINE_COLOR = Color.White;
+        private static readonly Color SHIP_OUTLINE_COLOR = Color.White;
 
-        private Color MESSAGE_COLOR = SwinGame.RGBAColor(2, 167, 252, 255);
+        private static readonly Color MESSAGE_COLOR = SwinGame.RGBAColor(2, 167, 252, 255);
 
         public const int ANIMATION_CELLS = 7;
 
@@ -362,7 +362,7 @@ namespace battleship
             foreach (Sprite s in _Animations)
             {
                 SwinGame.DrawSprite(s);
-            }there
+            }
 
         }
 
@@ -373,7 +373,7 @@ namespace battleship
                         <= (ANIMATION_CELLS * FRAMES_PER_CELL)); i++)
             {
                 UtilityFunctions.UpdateAnimations();
-                DrawScreen();
+                GameController.DrawScreen();
             }
 
         }

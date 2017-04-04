@@ -88,25 +88,25 @@ namespace battleship
             return _Music(music);
         }
 
-        private Dictionary<string, Bitmap> _Images = new Dictionary<string, Bitmap>();
+        private static Dictionary<string, Bitmap> _Images = new Dictionary<string, Bitmap>();
 
-        private Dictionary<string, Font> _Fonts = new Dictionary<string, Font>();
+        private static Dictionary<string, Font> _Fonts = new Dictionary<string, Font>();
 
-        private Dictionary<string, SoundEffect> _Sounds = new Dictionary<string, SoundEffect>();
+        private static Dictionary<string, SoundEffect> _Sounds = new Dictionary<string, SoundEffect>();
 
-        private Dictionary<string, Music> _Music = new Dictionary<string, Music>();
+        private static Dictionary<string, Music> _Music = new Dictionary<string, Music>();
 
-        private Bitmap _Background;
+        private static Bitmap _Background;
 
-        private Bitmap _Animation;
+        private static Bitmap _Animation;
 
-        private Bitmap _LoaderFull;
+        private static Bitmap _LoaderFull;
 
-        private Bitmap _LoaderEmpty;
+        private static Bitmap _LoaderEmpty;
 
-        private Font _LoadingFont;
+        private static Font _LoadingFont;
 
-        private SoundEffect _StartSound;
+        private static SoundEffect _StartSound;
 
         // '' <summary>
         // '' The Resources Class stores all of the Games Media Resources, such as Images, Fonts
@@ -159,18 +159,23 @@ namespace battleship
             int ANI_V_CELL_COUNT = 6;
             Audio.PlaySoundEffect(_StartSound);
             SwinGame.Delay(200);
+
             int i;
-            for (i = 0; (i
-                        <= (ANI_CELL_COUNT - 1)); i++) {
+            for (i = 0; (i <= (ANI_CELL_COUNT - 1)); i++) {
                 SwinGame.DrawBitmap(_Background, 0, 0);
-                (SwinGame.DrawBitmapPart(_Animation, i, ANI_V_CELL_COUNT) * ANI_W);
-                ((i % ANI_V_CELL_COUNT)
-                            * ANI_H);
-                ANI_W;
-                ANI_H;
-                ANI_X;
-                ANI_Y;
-                SwinGame.Delay(20);
+				//FixMe
+              //SwinGame.DrawBitmapPart(_Animation, (i % ANI_V_CELL_COUNT), i, ANI_V_CELL_COUNT) * ANI_W);
+            //    ((i % ANI_V_CELL_COUNT) * ANI_H);
+             //   ANI_W;
+            //    ANI_H;
+              //  ANI_X;
+               // ANI_Y;
+
+				SwinGame.DrawBitmapPart (_Animation, (i / ANI_V_CELL_COUNT) * ANI_W, (i % ANI_V_CELL_COUNT) * ANI_H, ANI_W, ANI_H, ANI_X, ANI_Y);
+
+
+
+			SwinGame.Delay(20);
                 SwinGame.RefreshScreen();
                 SwinGame.ProcessEvents();
             }
@@ -187,8 +192,7 @@ namespace battleship
             int STEPS = 5;
             int BG_X = 279;
             int fullW;
-            fullW = (260 * number);
-            STEPS;
+            fullW = (260 * number / STEPS);
             SwinGame.DrawBitmap(_LoaderEmpty, BG_X, BG_Y);
             SwinGame.DrawBitmapPart(_LoaderFull, 0, 0, fullW, 66, BG_X, BG_Y);
             SwinGame.DrawTextLines(message, Color.White, Color.Transparent, _LoadingFont, FontAlignment.AlignCenter, TX, TY, TW, TH);
@@ -235,32 +239,28 @@ namespace battleship
         }
 
         private static void FreeFonts() {
-            Font obj;
-            foreach (obj in _Fonts.Values) {
+            foreach (Font obj in _Fonts.Values) {
                 SwinGame.FreeFont(obj);
             }
 
         }
 
         private static void FreeImages() {
-            Bitmap obj;
-            foreach (obj in _Images.Values) {
+            foreach (Bitmap obj in _Images.Values) {
                 SwinGame.FreeBitmap(obj);
             }
 
         }
 
         private static void FreeSounds() {
-            SoundEffect obj;
-            foreach (obj in _Sounds.Values) {
+            foreach (SoundEffect obj in _Sounds.Values) {
                 Audio.FreeSoundEffect(obj);
             }
 
         }
 
         private static void FreeMusic() {
-            Music obj;
-            foreach (obj in _Music.Values) {
+            foreach (Music obj in _Music.Values) {
                 Audio.FreeMusic(obj);
             }
 

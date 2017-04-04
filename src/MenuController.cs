@@ -11,7 +11,7 @@ namespace battleship
     class MenuController
     {
 
-        private string[] _menuStructure;
+        private static readonly string[] _menuStructure;
 
         private const int MENU_TOP = 575;
 
@@ -55,9 +55,9 @@ namespace battleship
 
         private const int GAME_MENU_QUIT_BUTTON = 2;
 
-        private Color MENU_COLOR = SwinGame.RGBAColor(2, 167, 252, 255);
+        private static readonly Color MENU_COLOR = SwinGame.RGBAColor(2, 167, 252, 255);
 
-        private Color HIGHLIGHT_COLOR = SwinGame.RGBAColor(1, 57, 86, 255);
+        private static readonly Color HIGHLIGHT_COLOR = SwinGame.RGBAColor(1, 57, 86, 255);
 
         // '' <summary>
         // '' Handles the processing of user input when the main menu is showing
@@ -236,7 +236,7 @@ namespace battleship
             int btnLeft = (MENU_LEFT
                         + (BUTTON_SEP
                         * (button + xOffset)));
-            return IsMouseInRectangle(btnLeft, btnTop, BUTTON_WIDTH, BUTTON_HEIGHT);
+            return UtilityFunctions.IsMouseInRectangle(btnLeft, btnTop, BUTTON_WIDTH, BUTTON_HEIGHT);
         }
 
         // '' <summary>

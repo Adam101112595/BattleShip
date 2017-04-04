@@ -2,3 +2,10 @@ bin
 tmp
 out.log
 .DS_Store
+MyGame.suo
+obj/x86/Debug-Mac/MyGame.csprojResolveAssemblyReference.cache
+obj/x86/Debug-Mac/MyGame.csprojResolveAssemblyReference.cache
+*.userprefs
+MyGame.suo
+*.suo
+*.cache

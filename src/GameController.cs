@@ -12,15 +12,15 @@ namespace battleship
     public class GameController
     {
 
-        private BattleShipsGame _theGame;
+		private static BattleShipsGame _theGame;
 
-        private Player _human;
+        private static Player _human;
 
-        private AIPlayer _ai;
+        private static AIPlayer _ai;
 
-        private Stack<GameState> _state = new Stack<GameState>();
+        private static Stack<GameState> _state = new Stack<GameState>();
 
-        private AIOption _aiSetting;
+        private static AIOption _aiSetting;
 
         // '' <summary>
         // '' Returns the current state of the game, indicating which screen is
@@ -52,7 +52,7 @@ namespace battleship
             }
         }
 
-        GameController()
+        public GameController()
         {
             // bottom state will be quitting. If player exits main menu then the game is over
             _state.Push(GameState.Quitting);
@@ -68,23 +68,21 @@ namespace battleship
         // '' </remarks>
         public static void StartGame()
         {
-            if (_theGame)
+            if (_theGame != null)
             {
-                IsNot;
-                null;
-                GameController.EndGame();
+                EndGame();
                 // Create the game
                 _theGame = new BattleShipsGame();
                 // create the players
                 switch (_aiSetting)
                 {
-                    case AIOption.Medium:
+					case AIOption.Medium:
                         _ai = new AIMediumPlayer(_theGame);
                         break;
-                    case AIOption.Hard:
+					case AIOption.Hard:
                         _ai = new AIHardPlayer(_theGame);
                         break;
-                    default:
+					default:
                         _ai = new AIHardPlayer(_theGame);
                         break;
                 }
@@ -103,10 +101,8 @@ namespace battleship
         static void EndGame()
         {
             // RemoveHandler _human.PlayerGrid.Changed, AddressOf GridChanged
-            _ai.PlayerGrid.Changed;
-            new System.EventHandler(this.GridChanged);
-            _theGame.AttackCompleted;
-            new System.EventHandler(this.AttackCompleted);
+            _ai.PlayerGrid.Changed -= new System.EventHandler(this.GridChanged);
+            _theGame.AttackCompleted -= new System.EventHandler(this.AttackCompleted);
         }
 
         // '' <summary>
@@ -161,7 +157,7 @@ namespace battleship
             }
             else
             {
-                Message = ("The AI " + result.ToString());
+               Message = ("The AI " + result.ToString());
             }
 
             switch (result.Value)

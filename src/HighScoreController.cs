@@ -35,9 +35,9 @@ namespace battleship
             // '' </summary>
             // '' <param name="obj">the object to compare to</param>
             // '' <returns>a value that indicates the sort order</returns>
-            public static int CompareTo(object obj)
+            public int CompareTo(object obj)
             {
-                if ((obj.GetType() == Score))
+                if ((obj is Score))
                 {
                     Score other = ((Score)(obj));
                     return (other.Value - this.Value);
@@ -50,7 +50,7 @@ namespace battleship
             }
         }
 
-        private List<Score> _Scores = new List<Score>();
+        private static List<Score> _Scores = new List<Score>();
 
         private static void LoadScores()
         {
@@ -114,7 +114,7 @@ namespace battleship
                 HighScoreController.LoadScores();
             }
 
-            SwinGame.DrawText("   High Scores   ", Color.White, GameFont("Courier"), SCORES_LEFT, SCORES_HEADING);
+            SwinGame.DrawText("   High Scores   ", Color.White, GameResources.GameFont("Courier"), SCORES_LEFT, SCORES_HEADING);
             // For all of the scores
             int i;
             for (i = 0; (i
@@ -127,13 +127,13 @@ namespace battleship
                 {
                     SwinGame.DrawText((" "
                                     + ((i + 1) + (":   "
-                                    + (s.Name + ("   " + s.Value))))), Color.White, GameFont("Courier"), SCORES_LEFT, (SCORES_TOP
+                                    + (s.Name + ("   " + s.Value))))), Color.White, GameResources.GameFont("Courier"), SCORES_LEFT, (SCORES_TOP
                                     + (i * SCORE_GAP)));
                 }
                 else
                 {
                     SwinGame.DrawText(((i + 1) + (":   "
-                                    + (s.Name + ("   " + s.Value)))), Color.White, GameFont("Courier"), SCORES_LEFT, (SCORES_TOP
+                                    + (s.Name + ("   " + s.Value)))), Color.White, GameResources.GameFont("Courier"), SCORES_LEFT, (SCORES_TOP
                                     + (i * SCORE_GAP)));
                 }
 
