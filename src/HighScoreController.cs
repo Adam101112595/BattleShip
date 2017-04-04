@@ -1,6 +1,7 @@
 using System.IO;
 using System;
 using SwinGameSDK;
+using System.Collections.Generic;
 
 namespace battleship
 {
@@ -176,15 +177,15 @@ namespace battleship
                 s.Value = value;
                 GameController.AddNewState(GameState.ViewingHighScores);
                 int x;
-                x = (SCORES_LEFT + SwinGame.TextWidth(GameFont("Courier"), "Name: "));
-                SwinGame.StartReadingText(Color.White, NAME_WIDTH, GameFont("Courier"), x, ENTRY_TOP);
+                x = (SCORES_LEFT + SwinGame.TextWidth(GameResources.GameFont("Courier"), "Name: "));
+                SwinGame.StartReadingText(Color.White, NAME_WIDTH, GameResources.GameFont("Courier"), x, ENTRY_TOP);
                 // Read the text from the user
                 while (SwinGame.ReadingText())
                 {
                     SwinGame.ProcessEvents();
-                    DrawBackground();
+                    UtilityFunctions.DrawBackground();
                     HighScoreController.DrawHighScores();
-                    SwinGame.DrawText("Name: ", Color.White, GameFont("Courier"), SCORES_LEFT, ENTRY_TOP);
+                    SwinGame.DrawText("Name: ", Color.White, GameResources.GameFont("Courier"), SCORES_LEFT, ENTRY_TOP);
                     SwinGame.RefreshScreen();
                 }
 

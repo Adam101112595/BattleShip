@@ -221,20 +221,18 @@ namespace battleship
 
         public virtual void RandomizeDeployment()
         {
-            bool placementSuccessful;
+            bool placementSuccessful = true;
             Direction heading;
             // for each ship to deploy in shipist
             foreach (ShipName shipToPlace in Enum.GetValues(typeof(ShipName)))
             {
                 if ((shipToPlace == ShipName.None))
                 {
-                    // TODO: Continue For... Warning!!! not translated
+                    placementSuccessful = false;
                 }
 
-                placementSuccessful = false;
-                for (
-                ; !placementSuccessful;
-                )
+               
+                for (; !placementSuccessful;)
                 {
                     int dir = _Random.Next(2);
                     int x = _Random.Next(0, 11);
@@ -256,7 +254,7 @@ namespace battleship
                     }
                     catch (System.Exception placementSuccessful)
                     {
-                        false;
+                        placementSuccessful = false;
                     }
 
                 }

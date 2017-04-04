@@ -6,6 +6,8 @@
 // '' grid. This can be used in conjuncture with the SeaGridAdapter to 
 // '' mask the position of the ships.
 // '' </remarks>
+using System.Collections.Generic;
+
 namespace battleship
 {
 

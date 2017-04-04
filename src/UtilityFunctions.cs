@@ -242,7 +242,7 @@ namespace battleship
 
                 if (!small)
                 {
-                    SwinGame.DrawBitmap(GameImage(shipName), colLeft, rowTop);
+                    SwinGame.DrawBitmap(GameResources.GameImage(shipName), colLeft, rowTop);
                 }
                 else
                 {
@@ -289,20 +289,20 @@ namespace battleship
                 case GameState.ViewingGameMenu:
                 case GameState.AlteringSettings:
                 case GameState.ViewingHighScores:
-                    SwinGame.DrawBitmap(GameImage("Menu"), 0, 0);
+                    SwinGame.DrawBitmap(GameResources.GameImage("Menu"), 0, 0);
                     break;
                 case GameState.Discovering:
                 case GameState.EndingGame:
-                    SwinGame.DrawBitmap(GameImage("Discovery"), 0, 0);
+                    SwinGame.DrawBitmap(GameResources.GameImage("Discovery"), 0, 0);
                     break;
                 case GameState.Deploying:
-                    SwinGame.DrawBitmap(GameImage("Deploy"), 0, 0);
+                    SwinGame.DrawBitmap(GameResources.GameImage("Deploy"), 0, 0);
                     break;
                 default:
                     SwinGame.ClearScreen();
                     break;
             }
-            SwinGame.DrawFramerate(675, 585, GameFont("CourierSmall"));
+            SwinGame.DrawFramerate(675, 585, GameResources.GameFont("CourierSmall"));
         }
 
         public static void AddExplosion(int row, int col)
@@ -321,7 +321,7 @@ namespace battleship
         {
             Sprite s;
             Bitmap imgObj;
-            imgObj = GameImage(image);
+            imgObj = GameResources.GameImage(image);
             imgObj.SetCellDetails(40, 40, 3, 3, 7);
             AnimationScript animation;
             animation = SwinGame.LoadAnimationScript("splash.txt");
