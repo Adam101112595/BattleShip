@@ -6,6 +6,7 @@
 // '' the AI knows it has hit multiple ships. Then will try to destoy all around tiles
 // '' that have been hit.
 // '' </summary>
+using System;
 using System.Collections.Generic;
 
 namespace battleship
@@ -258,39 +259,38 @@ namespace battleship
 
         }
 
-        // '' <summary>
-        // '' RemoveShotsAround will remove targets that belong to the destroyed ship by checking if 
-        // '' the source of the targets belong to the destroyed ship. If they don't put them on a new stack.
-        // '' Then clear the targets stack and move all the targets that still need to be shot at back 
-        // '' onto the targets stack
-        // '' </summary>
-        // '' <param name="toRemove"></param>
-        private void RemoveShotsAround(Location toRemove)
-        {
-            Stack<Target> newStack = new Stack<Target>();
-            // create a new stack
-            // check all targets in the _Targets stack
-            foreach (Target t in _Targets)
-            {
-                // if the source of the target does not belong to the destroyed ship put them on the newStack
-                if (t.Source)
-                {
-                    IsNot;
-                    toRemove;
-                    newStack.Push(t);
-                    _Targets.Clear();
-                    // clear the _Targets stack
-                    // for all the targets in the newStack, move them back onto the _Targets stack
-                    foreach (Target t in newStack)
-                    {
-                        _Targets.Push(t);
-                    }
+		// '' <summary>
+		// '' RemoveShotsAround will remove targets that belong to the destroyed ship by checking if 
+		// '' the source of the targets belong to the destroyed ship. If they don't put them on a new stack.
+		// '' Then clear the targets stack and move all the targets that still need to be shot at back 
+		// '' onto the targets stack
+		// '' </summary>
+		// '' <param name="toRemove"></param>
+		private void RemoveShotsAround (Location toRemove)
+		{
+			Stack<Target> newStack = new Stack<Target> ();
+			// create a new stack
+			// check all targets in the _Targets stack
+			foreach (Target t in _Targets) {
+				// if the source of the target does not belong to the destroyed ship put them on the newStack
+				if (t.Source) {
+					IsNot;
+					toRemove;
+					newStack.Push (t);
+					_Targets.Clear ();
+					// clear the _Targets stack
+					// for all the targets in the newStack, move them back onto the _Targets stack
+					foreach (Target t in newStack) {
+						_Targets.Push (t);
+					}
 
-                    // if the _Targets stack is 0 then change the AI's state back to searching
-                    if ((_Targets.Count == 0))
-                    {
-                        _CurrentState = AIStates.Searching;
-                    }
+					// if the _Targets stack is 0 then change the AI's state back to searching
+					if ((_Targets.Count == 0)) {
+						_CurrentState = AIStates.Searching;
+					}
+				}
+			}
+		}
 
                     // '' <summary>
                     // '' ProcessHit gets the last hit location coordinates and will ask AddTarget to
@@ -301,13 +301,17 @@ namespace battleship
                     // '' </summary>
                     // '' <param name="row"></param>
                     // '' <param name="col"></param>
-                    ProcessHit(((int)(row)), ((int)(col)));
+
+		private void ProcessHit (int row, int col)
+		{
                     _LastHit.Add(_CurrentTarget);
+
                     // Uses _CurrentTarget as the source
                     AddTarget((row - 1), col);
                     AddTarget(row, (col - 1));
                     AddTarget((row + 1), col);
                     AddTarget(row, (col + 1));
+
                     if ((_CurrentState == AIStates.Searching))
                     {
                         _CurrentState = AIStates.TargetingShip;
@@ -318,24 +322,22 @@ namespace battleship
                         _CurrentState = AIStates.HittingShip;
                         ReOrderTargets();
                     }
-
-                }
+			}
 
                 // '' <summary>
                 // '' ReOrderTargets will optimise the targeting by re-orderin the stack that the targets are in.
                 // '' By putting the most important targets at the top they are the ones that will be shot at first.
                 // '' </summary>
-                ReOrderTargets();
-                // if the ship is lying on the same row, call MoveToTopOfStack to optimise on the row
-                if (_CurrentTarget.SameRow)
-                {
-                    MoveToTopOfStack(_CurrentTarget.ShotAt.Row, -1);
-                }
-                else if (_CurrentTarget.SameColumn)
-                {
-                    // else if the ship is lying on the same column, call MoveToTopOfStack to optimise on the column
-                    MoveToTopOfStack(-1, _CurrentTarget.ShotAt.Column);
-                }
+		private void ReOrderTargets ()
+			{
+				// if the ship is lying on the same row, call MoveToTopOfStack to optimise on the row
+				if (_CurrentTarget.SameRow) {
+					MoveToTopOfStack (_CurrentTarget.ShotAt.Row, -1);
+				} else if (_CurrentTarget.SameColumn) {
+					// else if the ship is lying on the same column, call MoveToTopOfStack to optimise on the column
+					MoveToTopOfStack (-1, _CurrentTarget.ShotAt.Column);
+				}
+			}
 
                 // '' <summary>
                 // '' MoveToTopOfStack will re-order the stack by checkin the coordinates of each target
@@ -347,7 +349,7 @@ namespace battleship
                 // '' </summary>
                 // '' <param name="row">the row of the optimisation</param>
                 // '' <param name="column">the column of the optimisation</param>
-                MoveToTopOfStack(((int)(row)), ((int)(column)));
+		private void MoveToTopOfStack(int row, int column) {
                 Stack<Target> _NoMatch = new Stack<Target>();
                 Stack<Target> _Match = new Stack<Target>();
                 Target current;
@@ -375,13 +377,13 @@ namespace battleship
                 {
                     _Targets.Push(t);
                 }
-
+		}
                 // '' <summary>
                 // '' AddTarget will add the targets it will shoot onto a stack
                 // '' </summary>
                 // '' <param name="row">the row of the targets location</param>
                 // '' <param name="column">the column of the targets location</param>
-                AddTarget(((int)(row)), ((int)(column)));
+		private void AddTarget(int row, int column) {
                 if (((row >= 0)
                             && ((column >= 0)
                             && ((row < EnemyGrid.Height)
@@ -390,9 +392,7 @@ namespace battleship
                 {
                     _Targets.Push(new Target(new Location(row, column), _CurrentTarget.ShotAt));
                 }
+		}
 
-            }
-
-        }
     }
 }

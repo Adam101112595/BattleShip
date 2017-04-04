@@ -3,6 +3,7 @@
 // '' The AIMediumPlayer is a type of AIPlayer where it will try and destroy a ship
 // '' if it has found a ship
 // '' </summary>
+using System;
 using System.Collections.Generic;
 
 namespace battleship
@@ -53,14 +54,13 @@ namespace battleship
                 switch (_CurrentState)
                 {
                     case AIStates.Searching:
-                        this.SearchCoords(row, column);
+                        this.SearchCoords(ref row, ref column);
                         break;
                     case AIStates.TargetingShip:
-                        this.TargetCoords(row, column);
+                        this.TargetCoords(ref row, ref column);
                         break;
                     default:
                         throw new ApplicationException("AI has gone in an imvalid state");
-                        break;
                 }
             }
 

@@ -32,7 +32,7 @@ namespace battleship
 		//  ''' <param name="column">the column to access</param>
 		//  ''' <value>what the player can see at that location</value>
 		//  ''' <returns>what the player can see at that location</returns>
-		TileView this[int row, int column] { get; }
+		TileView item [int row, int column] { get; }
 	// FixMe: vb code
 	// VB code
 	// ReadOnly Property Item (ByVal row As Integer, ByVal column As Integer) As TileView
