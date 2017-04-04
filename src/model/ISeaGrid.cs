@@ -23,6 +23,7 @@ namespace battleship
 		// ''' </summary>
 
 		public event EventHandler Changed;
+		// FixMe: vb code
 		// VB Code
 		// Event Changed As EventHandler
 
@@ -35,7 +36,7 @@ namespace battleship
 		//  ''' <value>what the player can see at that location</value>
 		//  ''' <returns>what the player can see at that location</returns>
 		readonly;
-
+		// FixMe: vb code
 		// VB code
 		// ReadOnly Property Item (ByVal row As Integer, ByVal column As Integer) As TileView
     
@@ -48,7 +49,8 @@ namespace battleship
  	//   ''' <param name="row">the row of the tile</param>
  	//   ''' <param name="col">the column of the tile</param>
 	 //   ''' <returns>the result of the attack</returns>
-		readonly; 	
+		readonly; 
+		//	FixMe: vb code
 		//   Function HitTile (ByVal row As Integer, ByVal col As Integer) As AttackResult
 
     }

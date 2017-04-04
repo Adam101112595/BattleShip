@@ -211,23 +211,13 @@ namespace battleship
             int shipHeight;
             int shipWidth;
             string shipName;
-            // Draw the ships
-            foreach (Ship s in thePlayer)
-            {
-                if (((s == null)
-                            || !s.IsDeployed))
-                {
-                    // TODO: Continue For... Warning!!! not translated
-                }
+			// Draw the ships
+			foreach (Ship s in thePlayer) {
+				if (((s == null) || !s.IsDeployed)) {
+					rowTop = (top + (((cellGap + cellHeight) * s.Row) + SHIP_GAP));
+					colLeft = (left	+ (((cellGap + cellWidth) * s.Column) + SHIP_GAP));
+				}
 
-                rowTop = (top
-                            + (((cellGap + cellHeight)
-                            * s.Row)
-                            + SHIP_GAP));
-                colLeft = (left
-                            + (((cellGap + cellWidth)
-                            * s.Column)
-                            + SHIP_GAP));
                 if ((s.Direction == Direction.LeftRight))
                 {
                     shipName = ("ShipLR" + s.Size);
