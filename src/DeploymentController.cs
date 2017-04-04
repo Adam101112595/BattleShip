@@ -153,7 +153,7 @@ namespace battleship
         // '' </summary>
         public static void DrawDeployment()
         {
-            DrawField(HumanPlayer.PlayerGrid, HumanPlayer, true);
+            UtilityFunctions.DrawField(HumanPlayer.PlayerGrid, HumanPlayer, true);
             // Draw the Left/Right and Up/Down buttons
             if ((_currentDirection == Direction.LeftRight))
             {
@@ -198,7 +198,7 @@ namespace battleship
             }
 
             SwinGame.DrawBitmap(GameImage("RandomButton"), RANDOM_BUTTON_LEFT, TOP_BUTTONS_TOP);
-            DrawMessage();
+            UtilityFunctions.DrawMessage();
         }
 
         // '' <summary>

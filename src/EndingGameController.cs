@@ -15,8 +15,8 @@ namespace battleship
         // '' </summary>
         public static void DrawEndOfGame()
         {
-            DrawField(ComputerPlayer.PlayerGrid, ComputerPlayer, true);
-            DrawSmallField(HumanPlayer.PlayerGrid, HumanPlayer);
+            UtilityFunctions.DrawField(ComputerPlayer.PlayerGrid, ComputerPlayer, true);
+            UtilityFunctions.DrawSmallField(HumanPlayer.PlayerGrid, HumanPlayer);
             if (HumanPlayer.IsDestroyed)
             {
                 SwinGame.DrawTextLines("YOU LOSE!", Color.White, Color.Transparent, GameFont("ArialLarge"), FontAlignment.AlignCenter, 0, 250, SwinGame.ScreenWidth(), SwinGame.ScreenHeight());
@@ -35,9 +35,9 @@ namespace battleship
         public static void HandleEndOfGameInput()
         {
             if ((SwinGame.MouseClicked(MouseButton.LeftButton)
-                        || (SwinGame.KeyTyped(KeyCode.vk_RETURN) || SwinGame.KeyTyped(KeyCode.VK_ESCAPE))))
+                        || (SwinGame.KeyTyped(KeyCode.vk_RETURN) || SwinGame.KeyTyped(KeyCode.vk_ESCAPE))))
             {
-                ReadHighScore(HumanPlayer.Score);
+                HighScoreController.ReadHighScore(HumanPlayer.Score);
                 GameController.EndCurrentState();
             }
         }

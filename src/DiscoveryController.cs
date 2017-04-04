@@ -69,15 +69,15 @@ namespace battleship
             if (((SwinGame.KeyDown(KeyCode.vk_LSHIFT) || SwinGame.KeyDown(KeyCode.vk_RSHIFT))
                         && SwinGame.KeyDown(KeyCode.vk_c)))
             {
-                DrawField(HumanPlayer.EnemyGrid, ComputerPlayer, true);
+                UtilityFunctions.DrawField(HumanPlayer.EnemyGrid, ComputerPlayer, true);
             }
             else
             {
-                DrawField(HumanPlayer.EnemyGrid, ComputerPlayer, false);
+                UtilityFunctions.DrawField(HumanPlayer.EnemyGrid, ComputerPlayer, false);
             }
 
-            DrawSmallField(HumanPlayer.PlayerGrid, HumanPlayer);
-            DrawMessage();
+            UtilityFunctions.DrawSmallField(HumanPlayer.PlayerGrid, HumanPlayer);
+            UtilityFunctions.DrawMessage();
             SwinGame.DrawText(HumanPlayer.Shots.ToString(), Color.White, GameFont("Menu"), SCORES_LEFT, SHOTS_TOP);
             SwinGame.DrawText(HumanPlayer.Hits.ToString(), Color.White, GameFont("Menu"), SCORES_LEFT, HITS_TOP);
             SwinGame.DrawText(HumanPlayer.Missed.ToString(), Color.White, GameFont("Menu"), SCORES_LEFT, SPLASH_TOP);

@@ -372,7 +372,7 @@ namespace battleship
             foreach (Sprite s in _Animations)
             {
                 SwinGame.DrawSprite(s);
-            }
+            }there
 
         }
 
