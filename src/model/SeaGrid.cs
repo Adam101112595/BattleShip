@@ -79,6 +79,7 @@ namespace battleship
 		public SeaGrid (Dictionary<ShipName, Ship> ships)
 		{
 			// fill array with empty Tiles
+			_GameTiles = new Tile[Width, Height];
 			int i;
 			for (i = 0; (i
 						<= (Width - 1)); i++) {

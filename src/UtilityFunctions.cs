@@ -133,8 +133,8 @@ namespace battleship
         private static void DrawCustomField(ISeaGrid grid, Player thePlayer, bool small, bool showShips, int left, int top, int width, int height, int cellWidth, int cellHeight, int cellGap)
         {
             // SwinGame.FillRectangle(Color.Blue, left, top, width, height)
-            int rowTop;
-            int colLeft;
+            int rowTop = 0;
+            int colLeft = 0;
             // Draw the grid
             for (int row = 0; (row <= 9); row++)
             {
@@ -146,7 +146,7 @@ namespace battleship
                     colLeft = (left
                                 + ((cellGap + cellWidth)
                                 * col));
-                    Color fillColor;
+                    Color fillColor = Color.White;
                     bool draw;
                     draw = true;
                     switch (grid.Item[row, col])
@@ -261,7 +261,7 @@ namespace battleship
         // '' </summary>
         // '' <value>The message to display</value>
         // '' <returns>The message to display</returns>
-        public string Message
+        public static string Message
         {
             get
             {

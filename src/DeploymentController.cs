@@ -139,7 +139,7 @@ namespace battleship
                     catch (Exception ex)
                     {
                         Audio.PlaySoundEffect(GameResources.GameSound("Error"));
-                        Message = ex.Message;
+                        UtilityFunctions.Message = ex.Message;
                     }
 
                 }
@@ -191,7 +191,7 @@ namespace battleship
 
             }
 
-            if (HumanPlayer.ReadyToDeploy)
+            if (GameController.HumanPlayer.ReadyToDeploy)
             {
                 SwinGame.DrawBitmap(GameResources.GameImage("PlayButton"), PLAY_BUTTON_LEFT, TOP_BUTTONS_TOP);
                 // SwinGame.FillRectangle(Color.LightBlue, PLAY_BUTTON_LEFT, PLAY_BUTTON_TOP, PLAY_BUTTON_WIDTH, PLAY_BUTTON_HEIGHT)

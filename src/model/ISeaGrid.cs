@@ -2,6 +2,8 @@
 // '' The ISeaGrid defines the read only interface of a Grid. This
 // '' allows each player to see and attack their opponents grid.
 // '' </summary>
+using System;
+
 namespace battleship
 {
 	public interface ISeaGrid
@@ -19,7 +21,7 @@ namespace battleship
 		// ''' Indicates that the grid has changed.
 		// ''' </summary>
 
-		public event EventHandler Changed;
+		event EventHandler Changed;
 		// FixMe: vb code
 		// VB Code
 		// Event Changed As EventHandler
@@ -32,7 +34,7 @@ namespace battleship
 		//  ''' <param name="column">the column to access</param>
 		//  ''' <value>what the player can see at that location</value>
 		//  ''' <returns>what the player can see at that location</returns>
-		TileView item [int row, int column] { get; }
+		TileView this[int row, int column] { get; }
 	// FixMe: vb code
 	// VB code
 	// ReadOnly Property Item (ByVal row As Integer, ByVal column As Integer) As TileView

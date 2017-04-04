@@ -1,5 +1,6 @@
 using SwinGameSDK;
 using System.Collections.Generic;
+using System;
 // '' <summary>
 // '' The GameController is responsible for controlling the game,
 // '' managing user input, and displaying the current state of the
@@ -52,7 +53,7 @@ namespace battleship
             }
         }
 
-        public GameController()
+        static GameController()
         {
             // bottom state will be quitting. If player exits main menu then the game is over
             _state.Push(GameState.Quitting);
@@ -88,8 +89,8 @@ namespace battleship
                 }
                 _human = new Player(_theGame);
                 // AddHandler _human.PlayerGrid.Changed, AddressOf GridChanged
-                _ai.PlayerGrid.Changed += new System.EventHandler(this.GridChanged);
-                _theGame.AttackCompleted += new System.EventHandler(this.AttackCompleted);
+                _ai.PlayerGrid.Changed += new System.EventHandler(GridChanged);
+                _theGame.AttackCompleted += new System.EventHandler(AttackCompleted);
                 GameController.AddNewState(GameState.Deploying);
             }
 
@@ -101,8 +102,8 @@ namespace battleship
         public static void EndGame()
         {
             // RemoveHandler _human.PlayerGrid.Changed, AddressOf GridChanged
-            _ai.PlayerGrid.Changed -= new System.EventHandler(this.GridChanged);
-            _theGame.AttackCompleted -= new System.EventHandler(this.AttackCompleted);
+            _ai.PlayerGrid.Changed -= new System.EventHandler(GridChanged);
+            _theGame.AttackCompleted -= new System.EventHandler(AttackCompleted);
         }
 
         // '' <summary>
@@ -153,11 +154,11 @@ namespace battleship
             isHuman = (_theGame.Player == HumanPlayer);
             if (isHuman)
             {
-                Message = ("You " + result.ToString());
+                UtilityFunctions.Message = ("You " + result.ToString());
             }
             else
             {
-               Message = ("The AI " + result.ToString());
+              	UtilityFunctions.Message = ("The AI " + result.ToString());
             }
 
             switch (result.Value)
@@ -350,7 +351,7 @@ namespace battleship
         public static void AddNewState(GameState state)
         {
             _state.Push(state);
-            Message = "";
+            UtilityFunctions.Message = "";
         }
 
         // '' <summary>

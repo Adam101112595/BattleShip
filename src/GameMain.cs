@@ -8,8 +8,6 @@ namespace battleship
     class GameLogic {
 
         public static void Main() {
-			GameController game = new GameController ();
-
             // Opens a new Graphics Window
             SwinGame.OpenGraphicsWindow("Battle Ships", 800, 600);
             // Load Resources
@@ -18,7 +16,7 @@ namespace battleship
             // Game Loop
             for (
             ; (((SwinGame.WindowCloseRequested() == true)
-                        || (game.CurrentState == GameState.Quitting))
+                        || (GameController.CurrentState == GameState.Quitting))
                         == false);
             ) {
                 GameController.HandleUserInput();

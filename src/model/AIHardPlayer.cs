@@ -131,15 +131,14 @@ namespace battleship
                 switch (_CurrentState)
                 {
                     case AIStates.Searching:
-                        this.SearchCoords(row, column);
+                        this.SearchCoords(ref row, ref column);
                         break;
                     case AIStates.TargetingShip:
                     case AIStates.HittingShip:
-                        this.TargetCoords(row, column);
+                        this.TargetCoords(ref row, ref column);
                         break;
                     default:
                         throw new ApplicationException("AI has gone in an invalid state");
-                        break;
                 }
             }
 
