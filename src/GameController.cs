@@ -28,7 +28,7 @@ namespace battleship
         // '' </summary>
         // '' <value>The current state</value>
         // '' <returns>The current state</returns>
-        public GameState CurrentState
+        public static GameState CurrentState
         {
             get
             {
@@ -36,7 +36,7 @@ namespace battleship
             }
         }
 
-        public Player HumanPlayer
+        public static Player HumanPlayer
         {
             get
             {
@@ -44,7 +44,7 @@ namespace battleship
             }
         }
 
-        public Player ComputerPlayer
+        public static Player ComputerPlayer
         {
             get
             {
@@ -98,7 +98,7 @@ namespace battleship
             // '' </summary>
         }
 
-        static void EndGame()
+        public static void EndGame()
         {
             // RemoveHandler _human.PlayerGrid.Changed, AddressOf GridChanged
             _ai.PlayerGrid.Changed -= new System.EventHandler(this.GridChanged);

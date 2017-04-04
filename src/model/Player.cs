@@ -13,19 +13,19 @@ namespace battleship
 
         protected static Random _Random = new Random();
 
-        private Dictionary<ShipName, Ship> _Ships = new Dictionary<ShipName, Ship>();
+        private static Dictionary<ShipName, Ship> _Ships = new Dictionary<ShipName, Ship>();
 
-        private SeaGrid _playerGrid = new SeaGrid(_Ships);
+        private static SeaGrid _playerGrid = new SeaGrid(_Ships);
 
-        private ISeaGrid _enemyGrid;
+        private static ISeaGrid _enemyGrid;
 
-        protected BattleShipsGame _game;
+        protected static BattleShipsGame _game;
 
-        private int _shots;
+        private static int _shots;
 
-        private int _hits;
+        private static int _hits;
 
-        private int _misses;
+        private static int _misses;
 
         // '' <summary>
         // '' Returns the game that the player is part of.
@@ -104,21 +104,18 @@ namespace battleship
             get
             {
                 // Check if all ships are destroyed... -1 for the none ship
-                return;
+				return _playerGrid.ShipsKilled == Enum.GetValues (typeof (ShipName)).Length - 1;
             }
         }
 
-        public Ship Ship
+		public Ship Ship(ShipName name)
         {
-            get
-            {
-                if ((name == ShipName.None))
+            if ((name == ShipName.None))
                 {
                     return null;
                 }
 
-                return _Ships.Item[name];
-            }
+                return _Ships[name];
         }
 
         public int Shots
@@ -163,9 +160,11 @@ namespace battleship
             }
         }
 
+
+		// FixMe: Unused code? or Duplicate?
         public IEnumerator<Ship> GetShipEnumerator()
         {
-            Ship[,] result;
+            Ship[] result;
             _Ships.Values.CopyTo(result, 0);
             List<Ship> lst = new List<Ship>();
             lst.AddRange(result);
@@ -177,9 +176,9 @@ namespace battleship
         // '' has.
         // '' </summary>
         // '' <returns>A Ship enumerator</returns>
-        public IEnumerator GetEnumerator()
+        public IEnumerator<Ship> GetEnumerator()
         {
-            Ship[,] result;
+            Ship[] result = new Ship[_Ships.Values.Count + 1];
             _Ships.Values.CopyTo(result, 0);
             List<Ship> lst = new List<Ship>();
             lst.AddRange(result);
@@ -252,7 +251,7 @@ namespace battleship
                         PlayerGrid.MoveShip(x, y, shipToPlace, heading);
                         placementSuccessful = true;
                     }
-                    catch (System.Exception placementSuccessful)
+                    catch
                     {
                         placementSuccessful = false;
                     }

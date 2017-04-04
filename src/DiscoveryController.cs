@@ -1,3 +1,4 @@
+using System;
 using SwinGameSDK;
 // '' <summary>
 // '' The battle phase is handled by the DiscoveryController.
@@ -40,17 +41,16 @@ namespace battleship
             // Calculate the row/col clicked
             int row;
             int col;
-            row = Convert.ToInt32(Math.Floor(((mouse.Y - FIELD_TOP)
-                                / (CELL_HEIGHT + CELL_GAP))));
-            col = Convert.ToInt32(Math.Floor(((mouse.X - FIELD_LEFT)
-                                / (CELL_WIDTH + CELL_GAP))));
+            row = Convert.ToInt32(Math.Floor(((mouse.Y - UtilityFunctions.FIELD_TOP) / (UtilityFunctions.CELL_HEIGHT + UtilityFunctions.CELL_GAP))));
+            col = Convert.ToInt32(Math.Floor(((mouse.X - UtilityFunctions.FIELD_LEFT) / (UtilityFunctions.CELL_WIDTH + UtilityFunctions.CELL_GAP))));
+
             if (((row >= 0)
-                        && (row < HumanPlayer.EnemyGrid.Height)))
+                        && (row < GameController.HumanPlayer.EnemyGrid.Height)))
             {
                 if (((col >= 0)
-                            && (col < HumanPlayer.EnemyGrid.Width)))
+                            && (col < GameController.HumanPlayer.EnemyGrid.Width)))
                 {
-                    Attack(row, col);
+                    GameController.Attack(row, col);
                 }
 
             }
@@ -69,18 +69,18 @@ namespace battleship
             if (((SwinGame.KeyDown(KeyCode.vk_LSHIFT) || SwinGame.KeyDown(KeyCode.vk_RSHIFT))
                         && SwinGame.KeyDown(KeyCode.vk_c)))
             {
-                UtilityFunctions.DrawField(HumanPlayer.EnemyGrid, ComputerPlayer, true);
+                UtilityFunctions.DrawField(GameController.HumanPlayer.EnemyGrid, GameController.ComputerPlayer, true);
             }
             else
             {
-                UtilityFunctions.DrawField(HumanPlayer.EnemyGrid, ComputerPlayer, false);
+                UtilityFunctions.DrawField(GameController.HumanPlayer.EnemyGrid, GameController.ComputerPlayer, false);
             }
 
-            UtilityFunctions.DrawSmallField(HumanPlayer.PlayerGrid, HumanPlayer);
+            UtilityFunctions.DrawSmallField(GameController.HumanPlayer.PlayerGrid, GameController.HumanPlayer);
             UtilityFunctions.DrawMessage();
-            SwinGame.DrawText(HumanPlayer.Shots.ToString(), Color.White, GameResources.GameFont("Menu"), SCORES_LEFT, SHOTS_TOP);
-            SwinGame.DrawText(HumanPlayer.Hits.ToString(), Color.White, GameResources.GameFont("Menu"), SCORES_LEFT, HITS_TOP);
-            SwinGame.DrawText(HumanPlayer.Missed.ToString(), Color.White, GameResources.GameFont("Menu"), SCORES_LEFT, SPLASH_TOP);
+            SwinGame.DrawText(GameController.HumanPlayer.Shots.ToString(), Color.White, GameResources.GameFont("Menu"), SCORES_LEFT, SHOTS_TOP);
+            SwinGame.DrawText(GameController.HumanPlayer.Hits.ToString(), Color.White, GameResources.GameFont("Menu"), SCORES_LEFT, HITS_TOP);
+            SwinGame.DrawText(GameController.HumanPlayer.Missed.ToString(), Color.White, GameResources.GameFont("Menu"), SCORES_LEFT, SPLASH_TOP);
         }
     }
 }

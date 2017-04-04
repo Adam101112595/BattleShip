@@ -5,17 +5,14 @@
 namespace battleship
 {
 	public interface ISeaGrid
-    {
+	{
 		//FIXME needs to be readonly
-		int Width
-		{
+		int Width {
 			get;
-			set;
 		}
 		//FIXME needs to be readonly
 		int Height {
 			get;
-			set;
 		}
 
 		// ''' <summary>
@@ -35,21 +32,21 @@ namespace battleship
 		//  ''' <param name="column">the column to access</param>
 		//  ''' <value>what the player can see at that location</value>
 		//  ''' <returns>what the player can see at that location</returns>
-		TileView Item (int row, int column);
-		// FixMe: vb code
-		// VB code
-		// ReadOnly Property Item (ByVal row As Integer, ByVal column As Integer) As TileView
-    
+		TileView this[int row, int column] { get; }
+	// FixMe: vb code
+	// VB code
+	// ReadOnly Property Item (ByVal row As Integer, ByVal column As Integer) As TileView
 
 
 
-		//		    ''' <summary>
-		//    ''' Mark the indicated tile as shot.
-		//    ''' </summary>
- 	//   ''' <param name="row">the row of the tile</param>
- 	//   ''' <param name="col">the column of the tile</param>
-	 //   ''' <returns>the result of the attack</returns>
-		public AttackResult HitTile (int row, int col) ; 
+
+	//		    ''' <summary>
+	//    ''' Mark the indicated tile as shot.
+	//    ''' </summary>
+	//   ''' <param name="row">the row of the tile</param>
+	//   ''' <param name="col">the column of the tile</param>
+	//   ''' <returns>the result of the attack</returns>
+	AttackResult HitTile (int row, int col) ; 
 		//	FixMe: vb code
 		//  Function HitTile (ByVal row As Integer, ByVal col As Integer) As AttackResult
 

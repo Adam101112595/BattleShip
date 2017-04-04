@@ -2,15 +2,17 @@
 // '' Tile knows its location on the grid, if it is a ship and if it has been 
 // '' shot before
 // '' </summary>
+using System;
+
 namespace battleship
 {
 
     public class Tile
     {
 
-        private int _RowValue;
+        private readonly int _RowValue;
 
-        private int _ColumnValue;
+        private readonly int _ColumnValue;
 
         // the column value of the tile
         private Ship _Ship = null;
@@ -56,11 +58,9 @@ namespace battleship
                 if ((_Ship == null))
                 {
                     _Ship = value;
-                    if (value)
+                    if (value != null)
                     {
-                        IsNot;
-                        null;
-                        _Ship.AddTile(this);
+                       _Ship.AddTile(this);
                     }
 
                 }
@@ -134,10 +134,8 @@ namespace battleship
             if ((false == Shot))
             {
                 Shot = true;
-                if (_Ship)
+                if (_Ship != null)
                 {
-                    IsNot;
-                    null;
                     _Ship.Hit();
                 }
 
