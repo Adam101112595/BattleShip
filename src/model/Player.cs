@@ -15,7 +15,7 @@ namespace battleship
 
         private static Dictionary<ShipName, Ship> _Ships = new Dictionary<ShipName, Ship>();
 
-        private static SeaGrid _playerGrid = new SeaGrid(_Ships);
+        private static SeaGrid _playerGrid;
 
         private static ISeaGrid _enemyGrid;
 
@@ -57,6 +57,7 @@ namespace battleship
         public Player(BattleShipsGame controller)
         {
             _game = controller;
+			_playerGrid = new SeaGrid (_Ships);
             // for each ship add the ships name so the seagrid knows about them
             foreach (ShipName name in Enum.GetValues(typeof(ShipName)))
             {

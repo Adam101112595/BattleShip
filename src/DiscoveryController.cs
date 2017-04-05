@@ -26,7 +26,7 @@ namespace battleship
 
             if (SwinGame.MouseClicked(MouseButton.LeftButton))
             {
-                DiscoveryController.DoAttack();
+                DoAttack();
             }
 
         }
@@ -44,11 +44,9 @@ namespace battleship
             row = Convert.ToInt32(Math.Floor(((mouse.Y - UtilityFunctions.FIELD_TOP) / (UtilityFunctions.CELL_HEIGHT + UtilityFunctions.CELL_GAP))));
             col = Convert.ToInt32(Math.Floor(((mouse.X - UtilityFunctions.FIELD_LEFT) / (UtilityFunctions.CELL_WIDTH + UtilityFunctions.CELL_GAP))));
 
-            if (((row >= 0)
-                        && (row < GameController.HumanPlayer.EnemyGrid.Height)))
+            if (((row >= 0) && (row < GameController.HumanPlayer.EnemyGrid.Height)))
             {
-                if (((col >= 0)
-                            && (col < GameController.HumanPlayer.EnemyGrid.Width)))
+                if (((col >= 0) && (col < GameController.HumanPlayer.EnemyGrid.Width)))
                 {
                     GameController.Attack(row, col);
                 }
@@ -78,6 +76,7 @@ namespace battleship
 
             UtilityFunctions.DrawSmallField(GameController.HumanPlayer.PlayerGrid, GameController.HumanPlayer);
             UtilityFunctions.DrawMessage();
+
             SwinGame.DrawText(GameController.HumanPlayer.Shots.ToString(), Color.White, GameResources.GameFont("Menu"), SCORES_LEFT, SHOTS_TOP);
             SwinGame.DrawText(GameController.HumanPlayer.Hits.ToString(), Color.White, GameResources.GameFont("Menu"), SCORES_LEFT, HITS_TOP);
             SwinGame.DrawText(GameController.HumanPlayer.Missed.ToString(), Color.White, GameResources.GameFont("Menu"), SCORES_LEFT, SPLASH_TOP);

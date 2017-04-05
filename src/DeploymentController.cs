@@ -170,11 +170,11 @@ namespace battleship
             // DrawShips
             foreach (ShipName sn in Enum.GetValues(typeof(ShipName)))
             {
-                int i;
+                int i = 0;
 				i = ((int)sn) - 1;
-                if ((i >= 0))
+                if (i >= 0)
                 {
-                    if ((sn == _selectedShip))
+                    if (sn == _selectedShip)
                     {
                         SwinGame.DrawBitmap(GameResources.GameImage("SelectedShip"), SHIPS_LEFT, (SHIPS_TOP + (i * SHIPS_HEIGHT)));
                         //     SwinGame.FillRectangle(Color.LightBlue, SHIPS_LEFT, SHIPS_TOP + i * SHIPS_HEIGHT, SHIPS_WIDTH, SHIPS_HEIGHT)

@@ -66,9 +66,7 @@ namespace battleship
                 }
                 else
                 {
-                    throw new InvalidOperationException(("There is already a ship at ["
-                                    + (Row + (", "
-                                    + (Column + "]")))));
+                    throw new InvalidOperationException(("There is already a ship at [" + (Row + (", "+ (Column + "]")))));
                 }
 
             }

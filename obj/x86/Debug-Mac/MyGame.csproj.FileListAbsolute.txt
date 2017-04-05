@@ -23,3 +23,4 @@ C:\Users\Nathan\Documents\SwinUni\BattleShip\bin\Debug\MyGame.pdb
 C:\Users\Nathan\Documents\SwinUni\BattleShip\bin\Debug\SwinGame.dll
 C:\Users\Nathan\Documents\SwinUni\BattleShip\obj\x86\Debug-Mac\MyGame.exe
 C:\Users\Nathan\Documents\SwinUni\BattleShip\obj\x86\Debug-Mac\MyGame.pdb
+C:\Users\Nathan\Documents\SwinUni\BattleShip\obj\x86\Debug-Mac\MyGame.csprojResolveAssemblyReference.cache

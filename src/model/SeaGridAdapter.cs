@@ -32,6 +32,8 @@ namespace battleship
 			Changed (this, e);
 		}
 
+		#region "ISeaGrid Members"
+
 		// '' <summary>
 		// '' Changes the discovery grid. Where there is a ship we will sea water FixME: This Pun
 		// '' </summary>
@@ -39,17 +41,17 @@ namespace battleship
 		// '' <param name="y">tile y coordinate</param>
 		// '' <returns>a tile, either what it actually is, or if it was a ship then return a sea tile</returns>
 		public TileView this [int x, int y] {
-			
-				get {
-					TileView result = _MyGrid [x, y];
 
-					if (result == TileView.Ship) {
-						return TileView.Sea;
-					} else {
-						return result;
-					}
+			get {
+				TileView result = _MyGrid [x, y];
+
+				if (result == TileView.Ship) {
+					return TileView.Sea;
+				} else {
+					return result;
 				}
-			
+			}
+
 		}
 
 		// '' <summary>
@@ -77,4 +79,5 @@ namespace battleship
 			return _MyGrid.HitTile (row, col);
 		}
 	}
+	#endregion
 }

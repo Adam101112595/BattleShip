@@ -69,16 +69,16 @@ namespace battleship
         {
             Point2D mouse;
             bool result = false;
+
             mouse = SwinGame.MousePosition();
+
             // if the mouse is inline with the button horizontally
             if (((mouse.X >= x)
                         && (mouse.X
                         <= (x + w))))
             {
                 // Check vertical position
-                if (((mouse.Y >= y)
-                            && (mouse.Y
-                            <= (y + h))))
+				if (((mouse.Y >= y && (mouse.Y <= (y + h)))))
                 {
                     result = true;
                 }
@@ -138,14 +138,10 @@ namespace battleship
             // Draw the grid
             for (int row = 0; (row <= 9); row++)
             {
-                rowTop = (top
-                            + ((cellGap + cellHeight)
-                            * row));
+                rowTop = (top + ((cellGap + cellHeight) * row));
                 for (int col = 0; (col <= 9); col++)
                 {
-                    colLeft = (left
-                                + ((cellGap + cellWidth)
-                                * col));
+                    colLeft = (left + ((cellGap + cellWidth) * col));
                     Color fillColor = Color.White;
                     bool draw;
                     draw = true;

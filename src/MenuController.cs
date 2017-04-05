@@ -69,7 +69,7 @@ namespace battleship
         // '' </summary>
         public static void HandleMainMenuInput()
         {
-            MenuController.HandleMenuInput(MAIN_MENU, 0, 0);
+            HandleMenuInput(MAIN_MENU, 0, 0);
         }
 
         // '' <summary>
@@ -77,14 +77,15 @@ namespace battleship
         // '' </summary>
         public static void HandleSetupMenuInput()
         {
-            bool handled;
-            handled = MenuController.HandleMenuInput(SETUP_MENU, 1, 1);
-            if (!handled)
-            {
-                MenuController.HandleMenuInput(MAIN_MENU, 0, 0);
-            }
+			bool handled = false;
+			handled = HandleMenuInput (SETUP_MENU, 1, 1);
 
-        }
+			if (!handled) {
+				HandleMenuInput (MAIN_MENU, 0, 0);
+			}
+		}
+
+        
 
         // '' <summary>
         // '' Handle input in the game menu.
@@ -115,19 +116,18 @@ namespace battleship
             if (SwinGame.MouseClicked(MouseButton.LeftButton))
             {
                 int i;
-                for (i = 0; (i
-                            <= (_menuStructure[menu].Length - 1)); i++)
+                for (i = 0; (i <= (_menuStructure[menu].Length - 1)); i++)
                 {
                     // IsMouseOver the i'th button of the menu
-                    if (MenuController.IsMouseOverMenu(i, level, xOffset))
+                    if (IsMouseOverMenu(i, level, xOffset))
                     {
-                        MenuController.PerformMenuAction(menu, i);
+                        PerformMenuAction(menu, i);
                         return true;
                     }
 
                 }
 
-                if ((level > 0))
+                if (level > 0)
                 {
                     // none clicked - so end this sub menu
                     GameController.EndCurrentState();

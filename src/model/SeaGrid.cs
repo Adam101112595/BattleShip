@@ -80,14 +80,11 @@ namespace battleship
 		{
 			// fill array with empty Tiles
 			_GameTiles = new Tile[Width, Height];
-			int i;
-			for (i = 0; (i
-						<= (Width - 1)); i++) {
-				for (int j = 0; (j
-							<= (Height - 1)); j++) {
+			int i = 0;
+			for (i = 0; (i <= (Width - 1)); i++) {
+				for (int j = 0; (j <= (Height - 1)); j++) {
 					_GameTiles [i, j] = new Tile (i, j, null);
 				}
-
 			}
 
 			_Ships = ships;
@@ -102,8 +99,8 @@ namespace battleship
 		// '' <param name="direction">the direction the ship is going</param>
 		public void MoveShip (int row, int col, ShipName ship, Direction direction)
 		{
-			Ship newShip = _Ships [ship];
-			newShip.Remove ();
+			Ship newShip = _Ships[ship];
+			newShip.Remove();
 			AddShip (row, col, direction, newShip);
 		}
 
@@ -120,8 +117,9 @@ namespace battleship
 				int size = newShip.Size;
 				int currentRow = row;
 				int currentCol = col;
-				int dRow;
-				int dCol;
+				int dRow = 0;
+				int dCol = 0;
+
 				if ((direction == Direction.LeftRight)) {
 					dRow = 0;
 					dCol = 1;
@@ -132,16 +130,13 @@ namespace battleship
 
 				// place ship's tiles in array and into ship object
 				int i;
-				for (i = 0; (i
-							<= (size - 1)); i++) {
-					if (((currentRow < 0)
-								|| ((currentRow >= Width)
-								|| ((currentCol < 0)
-								|| (currentCol >= Height))))) {
-						throw new InvalidOperationException ("Ship can\'t fit on the board");
+				for (i = 0; i <= size - 1; i++) {
+					if (currentRow < 0 | currentRow >= Width | currentCol < 0 | currentCol >= Height) {
+						throw new InvalidOperationException ("Ship can't fit on the board");
 					}
 
 					_GameTiles [currentRow, currentCol].Ship = newShip;
+
 					currentCol = (currentCol + dCol);
 					currentRow = (currentRow + dRow);
 				}

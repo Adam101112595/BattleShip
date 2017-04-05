@@ -110,7 +110,7 @@ public static void StartGame ()
         // '' <param name="args">not used</param>
         private static void GridChanged(object sender, EventArgs args)
         {
-            GameController.DrawScreen();
+            DrawScreen();
             SwinGame.RefreshScreen();
         }
 
