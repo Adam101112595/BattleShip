@@ -8,11 +8,10 @@ namespace battleship
 {
 	public interface ISeaGrid
 	{
-		//FIXME needs to be readonly
 		int Width {
 			get;
 		}
-		//FIXME needs to be readonly
+
 		int Height {
 			get;
 		}

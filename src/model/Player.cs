@@ -67,7 +67,7 @@ namespace battleship
 
             }
 
-            this.RandomizeDeployment();
+            RandomizeDeployment();
         }
 
         // '' <summary>
@@ -231,43 +231,39 @@ namespace battleship
 
         public virtual void RandomizeDeployment()
         {
-            bool placementSuccessful = true;
-            Direction heading;
+			bool placementSuccessful = false;
+			Direction heading = default(Direction);
+
             // for each ship to deploy in shipist
             foreach (ShipName shipToPlace in Enum.GetValues(typeof(ShipName)))
             {
                 if ((shipToPlace == ShipName.None))
                 {
-                    placementSuccessful = false;
+					continue;
                 }
 
-               
-                for (; !placementSuccessful;)
-                {
-                    int dir = _Random.Next(2);
-                    int x = _Random.Next(0, 11);
-                    int y = _Random.Next(0, 11);
-                    if ((dir == 0))
-                    {
-                        heading = Direction.UpDown;
-                    }
-                    else
-                    {
-                        heading = Direction.LeftRight;
-                    }
+				placementSuccessful = false;
 
-                    // try to place ship, if position unplaceable, generate new coordinates
-                    try
-                    {
-                        PlayerGrid.MoveShip(x, y, shipToPlace, heading);
-                        placementSuccessful = true;
-                    }
-                    catch
-                    {
-                        placementSuccessful = false;
-                    }
+				do {
+					int dir = _Random.Next (2);
+					int x = _Random.Next (0, 11);
+					int y = _Random.Next (0, 11);
 
-                }
+					if ((dir == 0)) {
+						heading = Direction.UpDown;
+					} else {
+						heading = Direction.LeftRight;
+					}
+
+					// try to place ship, if position unplaceable, generate new coordinates
+					try {
+						PlayerGrid.MoveShip (x, y, shipToPlace, heading);
+						placementSuccessful = true;
+					} catch {
+						placementSuccessful = false;
+					}
+
+				} while (!placementSuccessful);
 
             }
 

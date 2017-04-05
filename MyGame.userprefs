@@ -5,25 +5,26 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="src\model\AIPlayer.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="src\model\AttackResult.cs">
     <Files>
-      <File FileName="src\GameMain.cs" Line="1" Column="1" />
-      <File FileName="src\model\AIHardPlayer.cs" Line="1" Column="1" />
+      <File FileName="src\GameMain.cs" Line="13" Column="30" />
+      <File FileName="src\model\AIHardPlayer.cs" Line="13" Column="2" />
       <File FileName="src\model\AIMediumPlayer.cs" Line="1" Column="1" />
-      <File FileName="src\model\ISeaGrid.cs" Line="1" Column="1" />
-      <File FileName="src\model\Player.cs" Line="1" Column="1" />
+      <File FileName="src\model\ISeaGrid.cs" Line="14" Column="3" />
       <File FileName="src\model\SeaGrid.cs" Line="1" Column="1" />
       <File FileName="src\model\SeaGridAdapter.cs" Line="1" Column="1" />
       <File FileName="src\model\Tile.cs" Line="1" Column="1" />
-      <File FileName="src\DeploymentController.cs" Line="1" Column="1" />
-      <File FileName="src\DiscoveryController.cs" Line="1" Column="1" />
-      <File FileName="src\EndingGameController.cs" Line="1" Column="1" />
-      <File FileName="src\GameController.cs" Line="108" Column="3" />
-      <File FileName="src\GameResources.cs" Line="1" Column="1" />
+      <File FileName="src\DeploymentController.cs" Line="47" Column="25" />
+      <File FileName="src\DiscoveryController.cs" Line="24" Column="31" />
+      <File FileName="src\EndingGameController.cs" Line="8" Column="2" />
+      <File FileName="src\GameController.cs" Line="85" Column="11" />
+      <File FileName="src\GameResources.cs" Line="167" Column="34" />
       <File FileName="src\HighScoreController.cs" Line="189" Column="46" />
-      <File FileName="src\MenuController.cs" Line="197" Column="19" />
+      <File FileName="src\MenuController.cs" Line="81" Column="23" />
       <File FileName="src\UtilityFunctions.cs" Line="344" Column="42" />
-      <File FileName="src\model\AIPlayer.cs" Line="16" Column="25" />
+      <File FileName="src\model\AIPlayer.cs" Line="4" Column="2" />
+      <File FileName="src\model\Player.cs" Line="164" Column="24" />
+      <File FileName="src\model\AttackResult.cs" Line="89" Column="32" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -32,7 +33,7 @@
             <Node name="MyGame" expanded="True">
               <Node name="src" expanded="True">
                 <Node name="model" expanded="True">
-                  <Node name="AIPlayer.cs" selected="True" />
+                  <Node name="AttackResult.cs" selected="True" />
                 </Node>
               </Node>
             </Node>

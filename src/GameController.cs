@@ -67,39 +67,35 @@ namespace battleship
         // '' <remarks>
         // '' Creates an AI player based upon the _aiSetting.
         // '' </remarks>
-        public static void StartGame()
-        {
-            if (_theGame != null)
-            {
-                EndGame();
-                // Create the game
-                _theGame = new BattleShipsGame();
-                // create the players
-                switch (_aiSetting)
-                {
-					case AIOption.Medium:
-                        _ai = new AIMediumPlayer(_theGame);
-                        break;
-					case AIOption.Hard:
-                        _ai = new AIHardPlayer(_theGame);
-                        break;
-					default:
-                        _ai = new AIHardPlayer(_theGame);
-                        break;
-                }
-                _human = new Player(_theGame);
-                // AddHandler _human.PlayerGrid.Changed, AddressOf GridChanged
-                _ai.PlayerGrid.Changed += GridChanged;
-                _theGame.AttackCompleted += AttackCompleted;
-                GameController.AddNewState(GameState.Deploying);
-            }
+public static void StartGame ()
+		{
+			if (_theGame != null)
+				EndGame ();
 
-            // '' <summary>
-            // '' Stops listening to the old game once a new game is started
-            // '' </summary>
-        }
+			//Create the game
+			_theGame = new BattleShipsGame ();
 
-        public static void EndGame()
+			//create the players
+			switch (_aiSetting) {
+			case AIOption.Hard:
+				_ai = new AIHardPlayer (_theGame);
+				break;
+			case AIOption.Medium:
+				_ai = new AIMediumPlayer (_theGame);
+				break;
+			}
+
+			_human = new Player (_theGame);
+
+			//AddHandler _human.PlayerGrid.Changed, AddressOf GridChanged
+			_ai.PlayerGrid.Changed += GridChanged;
+			_theGame.AttackCompleted += AttackCompleted;
+
+			AddNewState (GameState.Deploying);
+		}
+
+
+		public static void EndGame()
         {
             // RemoveHandler _human.PlayerGrid.Changed, AddressOf GridChanged
             _ai.PlayerGrid.Changed -= GridChanged;

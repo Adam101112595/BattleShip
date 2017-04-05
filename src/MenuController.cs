@@ -206,7 +206,7 @@ namespace battleship
                 btnLeft = (MENU_LEFT
                             + (BUTTON_SEP
                             * (i + xOffset)));
-				SwinGame.DrawTextLines(Convert.ToString(_menuStructure[menu][i]), MENU_COLOR, Color.Black, GameResources.GameFont("Menu"), FontAlignment.AlignCenter, (btnLeft + TEXT_OFFSET), (btnTop + TEXT_OFFSET), BUTTON_WIDTH, BUTTON_HEIGHT);
+				SwinGame.DrawTextLines(_menuStructure[menu][i], MENU_COLOR, Color.Black, GameResources.GameFont("Menu"), FontAlignment.AlignCenter, (btnLeft + TEXT_OFFSET), (btnTop + TEXT_OFFSET), BUTTON_WIDTH, BUTTON_HEIGHT);
                 if ((SwinGame.MouseDown(MouseButton.LeftButton) && MenuController.IsMouseOverMenu(i, level, xOffset)))
                 {
                     SwinGame.DrawRectangle(HIGHLIGHT_COLOR, btnLeft, btnTop, BUTTON_WIDTH, BUTTON_HEIGHT);

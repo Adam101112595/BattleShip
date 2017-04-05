@@ -125,11 +125,9 @@ namespace battleship
                                 / (UtilityFunctions.CELL_HEIGHT + UtilityFunctions.CELL_GAP))));
             col = Convert.ToInt32(Math.Floor(((mouse.X - UtilityFunctions.FIELD_LEFT)
                                 / (UtilityFunctions.CELL_WIDTH + UtilityFunctions.CELL_GAP))));
-            if (((row >= 0)
-                        && (row < GameController.HumanPlayer.PlayerGrid.Height)))
+            if (((row >= 0) && (row < GameController.HumanPlayer.PlayerGrid.Height)))
             {
-                if (((col >= 0)
-                            && (col < GameController.HumanPlayer.PlayerGrid.Width)))
+                if (((col >= 0) && (col < GameController.HumanPlayer.PlayerGrid.Width)))
                 {
                     // if in the area try to deploy
                     try
@@ -178,8 +176,7 @@ namespace battleship
                 {
                     if ((sn == _selectedShip))
                     {
-                        SwinGame.DrawBitmap(GameResources.GameImage("SelectedShip"), SHIPS_LEFT, (SHIPS_TOP
-                                        + (i * SHIPS_HEIGHT)));
+                        SwinGame.DrawBitmap(GameResources.GameImage("SelectedShip"), SHIPS_LEFT, (SHIPS_TOP + (i * SHIPS_HEIGHT)));
                         //     SwinGame.FillRectangle(Color.LightBlue, SHIPS_LEFT, SHIPS_TOP + i * SHIPS_HEIGHT, SHIPS_WIDTH, SHIPS_HEIGHT)
                         // Else
                         //     SwinGame.FillRectangle(Color.Gray, SHIPS_LEFT, SHIPS_TOP + i * SHIPS_HEIGHT, SHIPS_WIDTH, SHIPS_HEIGHT)
@@ -212,8 +209,7 @@ namespace battleship
             {
                 int i;
 				i = ((int)sn) - 1;
-                if (UtilityFunctions.IsMouseInRectangle(SHIPS_LEFT, (SHIPS_TOP
-                                + (i * SHIPS_HEIGHT)), SHIPS_WIDTH, SHIPS_HEIGHT))
+                if (UtilityFunctions.IsMouseInRectangle(SHIPS_LEFT, (SHIPS_TOP + (i * SHIPS_HEIGHT)), SHIPS_WIDTH, SHIPS_HEIGHT))
                 {
                     return sn;
                 }
