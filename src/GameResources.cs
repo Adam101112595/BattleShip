@@ -27,10 +27,8 @@ namespace battleship
             // Ships
             int i;
             for (i = 1; (i <= 5); i++) {
-                GameResources.NewImage(("ShipLR" + i), ("ship_deploy_horiz_"
-                                + (i + ".png")));
-                GameResources.NewImage(("ShipUD" + i), ("ship_deploy_vert_"
-                                + (i + ".png")));
+                GameResources.NewImage(("ShipLR" + i), ("ship_deploy_horiz_" + (i + ".png")));
+                GameResources.NewImage(("ShipUD" + i), ("ship_deploy_vert_" + (i + ".png")));
             }
 
             // Explosions

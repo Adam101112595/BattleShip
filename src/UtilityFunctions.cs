@@ -204,25 +204,22 @@ namespace battleship
                 return;
             }
 
-            int shipHeight;
-            int shipWidth;
-            string shipName;
+            int shipHeight = 0;
+            int shipWidth = 0;
+            string shipName = null;
 			// Draw the ships
 			foreach (Ship s in thePlayer) {
-				if (((s == null) || !s.IsDeployed)) {
-					rowTop = (top + (((cellGap + cellHeight) * s.Row) + SHIP_GAP));
-					colLeft = (left	+ (((cellGap + cellWidth) * s.Column) + SHIP_GAP));
-				}
+                if (s == null || !s.IsDeployed)
+                    continue;
+                rowTop = top + (cellGap + cellHeight) * s.Row + SHIP_GAP;
+                colLeft = left + (cellGap + cellWidth) * s.Column + SHIP_GAP;
+
 
                 if ((s.Direction == Direction.LeftRight))
                 {
                     shipName = ("ShipLR" + s.Size);
-                    shipHeight = (cellHeight
-                                - (SHIP_GAP * 2));
-                    shipWidth = (((cellWidth + cellGap)
-                                * s.Size)
-                                - ((SHIP_GAP * 2)
-                                - cellGap));
+                    shipHeight = (cellHeight - (SHIP_GAP * 2));
+                    shipWidth = (((cellWidth + cellGap) * s.Size) - ((SHIP_GAP * 2) - cellGap));
                 }
                 else
                 {

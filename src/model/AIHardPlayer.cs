@@ -119,28 +119,27 @@ namespace battleship
         // '' <param name="column">the column that will be shot at</param>
         protected override void GenerateCoords(ref int row, ref int column)
         {
-            for (
-            ; ((row < 0)
-                        || ((column < 0)
-                        || ((row >= EnemyGrid.Height)
-                        || ((column >= EnemyGrid.Width)
-                        || (EnemyGrid[row, column] != TileView.Sea)))));
-            )
+            do
             {
                 _CurrentTarget = null;
+
+                //check which state the AI is in and uppon that choose which coordinate generation
+                //method will be used.
                 switch (_CurrentState)
                 {
                     case AIStates.Searching:
-                        this.SearchCoords(ref row, ref column);
+                        SearchCoords(ref row, ref column);
                         break;
                     case AIStates.TargetingShip:
                     case AIStates.HittingShip:
-                        this.TargetCoords(ref row, ref column);
+                        TargetCoords(ref row, ref column);
                         break;
                     default:
                         throw new ApplicationException("AI has gone in an invalid state");
                 }
-            }
+
+            } while ((row < 0 || column < 0 || row >= EnemyGrid.Height || column >= EnemyGrid.Width || EnemyGrid[row, column] != TileView.Sea));
+
 
         }
 
@@ -152,8 +151,9 @@ namespace battleship
         // '' <param name="column">column generated around the hit tile</param>
         private void TargetCoords(ref int row, ref int column)
         {
-            Target t;
+            Target t = null;
             t = _Targets.Pop();
+
             row = t.ShotAt.Row;
             column = t.ShotAt.Column;
             _CurrentTarget = t;
@@ -194,7 +194,7 @@ namespace battleship
                 case ResultOfAttack.ShotAlready:
                     throw new ApplicationException("Error in AI");
             }
-            if ((_Targets.Count == 0))
+            if (_Targets.Count == 0)
             {
                 _CurrentState = AIStates.Searching;
             }
@@ -210,10 +210,11 @@ namespace battleship
 
         void ProcessDestroy(int row, int col, Ship ship)
         {
-            bool foundOriginal;
-            Location source;
-            Target current;
+            bool foundOriginal = false;
+            Location source = null;
+            Target current = null;
             current = _CurrentTarget;
+
             foundOriginal = false;
             int i;
             for (i = 1; (i

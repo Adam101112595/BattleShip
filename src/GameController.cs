@@ -83,6 +83,10 @@ public static void StartGame ()
 			case AIOption.Medium:
 				_ai = new AIMediumPlayer (_theGame);
 				break;
+
+				default:
+				_ai = new AIHardPlayer (_theGame);
+				break;
 			}
 
 			_human = new Player (_theGame);

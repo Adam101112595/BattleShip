@@ -113,42 +113,55 @@ namespace battleship
 		// '' <param name="newShip">the ship</param>
 		private void AddShip (int row, int col, Direction direction, Ship newShip)
 		{
-			try {
-				int size = newShip.Size;
-				int currentRow = row;
-				int currentCol = col;
-				int dRow = 0;
-				int dCol = 0;
+            try
+            {
+                int size = newShip.Size;
+                int currentRow = row;
+                int currentCol = col;
+                int dRow = 0;
+                int dCol = 0;
 
-				if ((direction == Direction.LeftRight)) {
-					dRow = 0;
-					dCol = 1;
-				} else {
-					dRow = 1;
-					dCol = 0;
-				}
+                if (direction == Direction.LeftRight)
+                {
+                    dRow = 0;
+                    dCol = 1;
+                }
+                else
+                {
+                    dRow = 1;
+                    dCol = 0;
+                }
 
-				// place ship's tiles in array and into ship object
-				int i;
-				for (i = 0; i <= size - 1; i++) {
-					if (currentRow < 0 | currentRow >= Width | currentCol < 0 | currentCol >= Height) {
-						throw new InvalidOperationException ("Ship can't fit on the board");
-					}
+                // place ship's tiles in array and into ship object
+                int i;
+                for (i = 0; i <= size - 1; i++)
+                {
+                    if (currentRow < 0 | currentRow >= Width | currentCol < 0 | currentCol >= Height)
+                    {
+                        throw new InvalidOperationException("Ship can't fit on the board");
+                    }
 
-					_GameTiles [currentRow, currentCol].Ship = newShip;
+                    _GameTiles[currentRow, currentCol].Ship = newShip;
 
-					currentCol = (currentCol + dCol);
-					currentRow = (currentRow + dRow);
-				}
+                    currentCol = (currentCol + dCol);
+                    currentRow = (currentRow + dRow);
+                }
 
-				newShip.Deployed (direction, row, col);
-			} catch (Exception e) {
-				newShip.Remove ();
-				// if fails remove the ship
-				throw new ApplicationException (e.Message);
-			} finally {
-				Changed (this, EventArgs.Empty);
-			}
+                newShip.Deployed(direction, row, col);
+            }
+            catch (Exception e)
+            {
+                newShip.Remove();
+                // if fails remove the ship
+                throw new ApplicationException(e.Message);
+            }
+            finally
+            {
+                if (Changed != null)
+                {
+                    Changed(this, EventArgs.Empty);
+                }
+            }
 
 		}
 
@@ -161,33 +174,41 @@ namespace battleship
 		// '' <returns>An attackresult (hit, miss, sunk, shotalready)</returns>
 		public AttackResult HitTile (int row, int col)
 		{
-			try {
-				// tile is already hit
-				if (_GameTiles [row, col].Shot) {
-					return new AttackResult (ResultOfAttack.ShotAlready, ("have already attacked ["
-									+ (col + (","
-									+ (row + "]!")))), row, col);
-				}
+            try
+            {
+                // tile is already hit
+                if (_GameTiles[row, col].Shot)
+                {
+                    return new AttackResult(ResultOfAttack.ShotAlready, ("have already attacked ["
+                                    + (col + (","
+                                    + (row + "]!")))), row, col);
+                }
 
-				_GameTiles [row, col].Shoot ();
-				// there is no ship on the tile
-				if ((_GameTiles [row, col].Ship == null)) {
-					return new AttackResult (ResultOfAttack.Miss, "missed", row, col);
-				}
+                _GameTiles[row, col].Shoot();
+                // there is no ship on the tile
+                if ((_GameTiles[row, col].Ship == null))
+                {
+                    return new AttackResult(ResultOfAttack.Miss, "missed", row, col);
+                }
 
-				// all ship's tiles have been destroyed
-				if (_GameTiles [row, col].Ship.IsDestroyed) {
-					_GameTiles [row, col].Shot = true;
-					_ShipsKilled++;
-					return new AttackResult (ResultOfAttack.Destroyed, _GameTiles [row, col].Ship, "destroyed the enemy\'s", row, col);
-				}
+                // all ship's tiles have been destroyed
+                if (_GameTiles[row, col].Ship.IsDestroyed)
+                {
+                    _GameTiles[row, col].Shot = true;
+                    _ShipsKilled++;
+                    return new AttackResult(ResultOfAttack.Destroyed, _GameTiles[row, col].Ship, "destroyed the enemy\'s", row, col);
+                }
 
-				// else hit but not destroyed
-				return new AttackResult (ResultOfAttack.Hit, "hit something!", row, col);
-			} finally {
-				Changed (this, EventArgs.Empty);
-			}
-
+                // else hit but not destroyed
+                return new AttackResult(ResultOfAttack.Hit, "hit something!", row, col);
+            }
+            finally
+            {
+                if (Changed != null)
+                {
+                    Changed(this, EventArgs.Empty);
+                }
+            }
 		}
 	}
 }

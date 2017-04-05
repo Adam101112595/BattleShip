@@ -13,7 +13,7 @@ namespace battleship
 
         protected static Random _Random = new Random();
 
-        private static Dictionary<ShipName, Ship> _Ships = new Dictionary<ShipName, Ship>();
+        private Dictionary<ShipName, Ship> _Ships = new Dictionary<ShipName, Ship>();
 
         private static SeaGrid _playerGrid;
 
@@ -61,7 +61,7 @@ namespace battleship
             // for each ship add the ships name so the seagrid knows about them
             foreach (ShipName name in Enum.GetValues(typeof(ShipName)))
             {
-                if ((name != ShipName.None))
+                if (name != ShipName.None)
                 {
                     _Ships.Add(name, new Ship(name));
                 }
@@ -118,7 +118,7 @@ namespace battleship
 
 		public Ship Ship(ShipName name)
         {
-            if ((name == ShipName.None))
+            if (name == ShipName.None)
                 {
                     return null;
                 }
@@ -180,6 +180,7 @@ namespace battleship
             _Ships.Values.CopyTo(result, 0);
             List<Ship> lst = new List<Ship>();
             lst.AddRange(result);
+
             return lst.GetEnumerator();
         }
 
@@ -238,7 +239,7 @@ namespace battleship
             // for each ship to deploy in shipist
             foreach (ShipName shipToPlace in Enum.GetValues(typeof(ShipName)))
             {
-                if ((shipToPlace == ShipName.None))
+                if (shipToPlace == ShipName.None)
                 {
 					continue;
                 }
@@ -250,7 +251,7 @@ namespace battleship
 					int x = _Random.Next (0, 11);
 					int y = _Random.Next (0, 11);
 
-					if ((dir == 0)) {
+					if (dir == 0) {
 						heading = Direction.UpDown;
 					} else {
 						heading = Direction.LeftRight;
