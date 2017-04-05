@@ -42,7 +42,7 @@ namespace battleship
             GameResources.NewSound("Error", "error.wav");
             GameResources.NewSound("Hit", "hit.wav");
             GameResources.NewSound("Sink", "sink.wav");
-			//GameResources.NewSound("Siren", "siren.wav");
+            GameResources.NewSound("Siren", "siren.wav");
             GameResources.NewSound("Miss", "watershot.wav");
             GameResources.NewSound("Winner", "winner.wav");
             GameResources.NewSound("Lose", "lose.wav");
