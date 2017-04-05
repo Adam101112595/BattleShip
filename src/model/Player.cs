@@ -43,7 +43,9 @@ namespace battleship
                 _game = value;
             }
         }
-
+	//'' <summary>
+	//'' Displays enemies hits on your grid
+	//'' </summary>
         public ISeaGrid Enemy
         {
             set
@@ -83,6 +85,9 @@ namespace battleship
             }
         }
 
+	//'' <summary>
+	//'' Shows player grid 
+	//'' </summary>
         public SeaGrid PlayerGrid
         {
             get
@@ -91,10 +96,12 @@ namespace battleship
             }
         }
 
+	
         public bool ReadyToDeploy
         {
             get
             {
+		    // checks if all the ships are deployed on the player grid
                 return _playerGrid.AllDeployed;
             }
         }
@@ -122,6 +129,7 @@ namespace battleship
         {
             get
             {
+		    //displays the amount of shots taken by player
                 return _shots;
             }
         }
@@ -130,6 +138,7 @@ namespace battleship
         {
             get
             {
+		    //displays number of hits player has made
                 return _hits;
             }
         }
@@ -138,6 +147,7 @@ namespace battleship
         {
             get
             {
+		    //displays number of misses made by player
                 return _misses;
             }
         }
@@ -146,6 +156,7 @@ namespace battleship
         {
             get
             {
+		    //Displays score
                 if (IsDestroyed)
                 {
                     return 0;

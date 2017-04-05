@@ -51,7 +51,9 @@ namespace battleship
         }
 
         private static List<Score> _Scores = new List<Score>();
-
+	//'' <summary>
+	//'' Loads previous scores from the highscores text file
+	//'' </summary>
         private static void LoadScores()
         {
             string filename;

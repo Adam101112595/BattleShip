@@ -128,7 +128,9 @@ namespace battleship
 
             }
         }
-
+        //'' <summary>
+        //'' if you shoot a square that hasn't already been shot, and a ship is there, returns ship hit
+        //'' </summary>
         internal void Shoot()
         {
             if ((false == Shot))
