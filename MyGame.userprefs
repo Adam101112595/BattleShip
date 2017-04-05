@@ -5,35 +5,25 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="src\model\Player.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="src\GameController.cs">
     <Files>
-      <File FileName="src\DeploymentController.cs" Line="15" Column="9" />
-      <File FileName="src\UtilityFunctions.cs" Line="349" Column="5" />
-      <File FileName="src\model\ISeaGrid.cs" Line="35" Column="46" />
-      <File FileName="src\model\SeaGrid.cs" Line="144" Column="45" />
-      <File FileName="src\GameController.cs" Line="93" Column="45" />
-      <File FileName="src\model\SeaGridAdapter.cs" Line="52" Column="4" />
-      <File FileName="src\model\AIHardPlayer.cs" Line="289" Column="4" />
-      <File FileName="src\HighScoreController.cs" Line="174" Column="33" />
-      <File FileName="src\model\AIMediumPlayer.cs" Line="134" Column="38" />
-      <File FileName="src\MenuController.cs" Line="205" Column="58" />
-      <File FileName="src\model\Player.cs" Line="167" Column="29" />
+      <File FileName="src\GameMain.cs" Line="1" Column="1" />
+      <File FileName="src\model\AIHardPlayer.cs" Line="1" Column="1" />
+      <File FileName="src\model\AIMediumPlayer.cs" Line="1" Column="1" />
+      <File FileName="src\model\ISeaGrid.cs" Line="1" Column="1" />
+      <File FileName="src\model\Player.cs" Line="1" Column="1" />
+      <File FileName="src\model\SeaGrid.cs" Line="1" Column="1" />
+      <File FileName="src\model\SeaGridAdapter.cs" Line="1" Column="1" />
+      <File FileName="src\model\Tile.cs" Line="1" Column="1" />
+      <File FileName="src\DeploymentController.cs" Line="1" Column="1" />
+      <File FileName="src\DiscoveryController.cs" Line="1" Column="1" />
+      <File FileName="src\EndingGameController.cs" Line="1" Column="1" />
+      <File FileName="src\GameController.cs" Line="1" Column="1" />
+      <File FileName="src\GameResources.cs" Line="1" Column="1" />
+      <File FileName="src\HighScoreController.cs" Line="1" Column="1" />
+      <File FileName="src\MenuController.cs" Line="1" Column="1" />
+      <File FileName="src\UtilityFunctions.cs" Line="1" Column="1" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="MyGame" expanded="True">
-            <Node name="MyGame" expanded="True">
-              <Node name="References" expanded="True" />
-              <Node name="src" expanded="True">
-                <Node name="model" expanded="True">
-                  <Node name="Player.cs" selected="True" />
-                </Node>
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
 </Properties>
