@@ -102,7 +102,7 @@ namespace battleship
 		// '' <param name="direction">the direction the ship is going</param>
 		public void MoveShip (int row, int col, ShipName ship, Direction direction)
 		{
-			Ship newShip = _Ships [ship];
+			Ship newShip = _Ships[ship];
 			newShip.Remove ();
 			AddShip (row, col, direction, newShip);
 		}

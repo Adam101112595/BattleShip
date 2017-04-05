@@ -225,11 +225,12 @@ namespace battleship
             // for each ship to deploy in shipist
             foreach (ShipName shipToPlace in Enum.GetValues(typeof(ShipName)))
             {
-                if ((shipToPlace == ShipName.None))
+                if (shipToPlace == ShipName.None)
                 {
-                    placementSuccessful = false;
+					continue;
                 }
 
+				placementSuccessful = false;
                
                 for (; !placementSuccessful;)
                 {

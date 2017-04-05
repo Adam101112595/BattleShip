@@ -69,9 +69,10 @@ namespace battleship
         // '' </remarks>
         public static void StartGame()
         {
-            if (_theGame != null)
-            {
-                EndGame();
+			if (_theGame != null)
+			{
+				EndGame ();
+			}
                 // Create the game
                 _theGame = new BattleShipsGame();
                 // create the players
@@ -92,7 +93,7 @@ namespace battleship
                 _ai.PlayerGrid.Changed += GridChanged;
                 _theGame.AttackCompleted += AttackCompleted;
                 GameController.AddNewState(GameState.Deploying);
-            }
+            
 
             // '' <summary>
             // '' Stops listening to the old game once a new game is started
