@@ -48,7 +48,7 @@ namespace battleship
                         || ((column < 0)
                         || ((row >= EnemyGrid.Height)
                         || ((column >= EnemyGrid.Width)
-                        || (EnemyGrid.Item[row, column] != TileView.Sea)))));
+                        || (EnemyGrid[row, column] != TileView.Sea)))));
             )
             {
                 switch (_CurrentState)
@@ -131,7 +131,7 @@ namespace battleship
                         && ((column >= 0)
                         && ((row < EnemyGrid.Height)
                         && ((column < EnemyGrid.Width)
-                        && (EnemyGrid.Item[row, column] == TileView.Sea))))))
+                        && (EnemyGrid[row, column] == TileView.Sea))))))
             {
                 _Targets.Push(new Location(row, column));
             }

@@ -124,7 +124,7 @@ namespace battleship
                         || ((column < 0)
                         || ((row >= EnemyGrid.Height)
                         || ((column >= EnemyGrid.Width)
-                        || (EnemyGrid.Item[row, column] != TileView.Sea)))));
+                        || (EnemyGrid[row, column] != TileView.Sea)))));
             )
             {
                 _CurrentTarget = null;
@@ -193,7 +193,6 @@ namespace battleship
                     break;
                 case ResultOfAttack.ShotAlready:
                     throw new ApplicationException("Error in AI");
-                    break;
             }
             if ((_Targets.Count == 0))
             {
@@ -272,15 +271,13 @@ namespace battleship
 			// check all targets in the _Targets stack
 			foreach (Target t in _Targets) {
 				// if the source of the target does not belong to the destroyed ship put them on the newStack
-				if (t.Source) {
-					IsNot;
-					toRemove;
+				if (t.Source != toRemove) {
 					newStack.Push (t);
 					_Targets.Clear ();
 					// clear the _Targets stack
 					// for all the targets in the newStack, move them back onto the _Targets stack
-					foreach (Target t in newStack) {
-						_Targets.Push (t);
+					foreach (Target _t in newStack) {
+						_Targets.Push (_t);
 					}
 
 					// if the _Targets stack is 0 then change the AI's state back to searching
@@ -387,7 +384,7 @@ namespace battleship
                             && ((column >= 0)
                             && ((row < EnemyGrid.Height)
                             && ((column < EnemyGrid.Width)
-                            && (EnemyGrid.Item[row, column] == TileView.Sea))))))
+                            && (EnemyGrid[row, column] == TileView.Sea))))))
                 {
                     _Targets.Push(new Target(new Location(row, column), _CurrentTarget.ShotAt));
                 }

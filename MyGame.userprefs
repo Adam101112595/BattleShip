@@ -5,34 +5,35 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="src\model\AIHardPlayer.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="src\model\Player.cs">
     <Files>
-      <File FileName="src\UtilityFunctions.cs" Line="233" Column="31" />
-      <File FileName="src\MenuController.cs" Line="210" Column="14" />
-      <File FileName="src\HighScoreController.cs" Line="182" Column="47" />
-      <File FileName="src\GameState.cs" Line="6" Column="1" />
-      <File FileName="src\GameResources.cs" Line="20" Column="60" />
-      <File FileName="src\GameMain.cs" Line="18" Column="29" />
-      <File FileName="src\GameController.cs" Line="330" Column="51" />
-      <File FileName="src\EndingGameController.cs" Line="42" Column="14" />
-      <File FileName="src\DiscoveryController.cs" Line="80" Column="44" />
-      <File FileName="src\DeploymentController.cs" Line="192" Column="4" />
-      <File FileName="src\model\TileView.cs" Line="6" Column="1" />
-      <File FileName="src\model\Tile.cs" Line="134" Column="33" />
-      <File FileName="src\model\ShipName.cs" Line="8" Column="25" />
-      <File FileName="src\model\Ship.cs" Line="10" Column="1" />
-      <File FileName="src\model\SeaGridAdapter.cs" Line="43" Column="2" />
-      <File FileName="src\model\SeaGrid.cs" Line="150" Column="35" />
-      <File FileName="src\model\ResultOfAttack.cs" Line="6" Column="1" />
-      <File FileName="src\model\Player.cs" Line="249" Column="82" />
-      <File FileName="src\model\ISeaGrid.cs" Line="39" Column="20" />
-      <File FileName="src\model\BattleShipsGame.cs" Line="8" Column="1" />
-      <File FileName="src\model\Direction.cs" Line="4" Column="1" />
-      <File FileName="src\model\AttackResult.cs" Line="3" Column="17" />
-      <File FileName="src\model\AIPlayer.cs" Line="6" Column="30" />
-      <File FileName="src\model\AIOption.cs" Line="7" Column="25" />
-      <File FileName="src\model\AIMediumPlayer.cs" Line="50" Column="39" />
-      <File FileName="src\model\AIHardPlayer.cs" Line="374" Column="45" />
+      <File FileName="src\DeploymentController.cs" Line="15" Column="9" />
+      <File FileName="src\UtilityFunctions.cs" Line="349" Column="5" />
+      <File FileName="src\model\ISeaGrid.cs" Line="35" Column="46" />
+      <File FileName="src\model\SeaGrid.cs" Line="144" Column="45" />
+      <File FileName="src\GameController.cs" Line="93" Column="45" />
+      <File FileName="src\model\SeaGridAdapter.cs" Line="52" Column="4" />
+      <File FileName="src\model\AIHardPlayer.cs" Line="289" Column="4" />
+      <File FileName="src\HighScoreController.cs" Line="174" Column="33" />
+      <File FileName="src\model\AIMediumPlayer.cs" Line="134" Column="38" />
+      <File FileName="src\MenuController.cs" Line="205" Column="58" />
+      <File FileName="src\model\Player.cs" Line="167" Column="29" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="MyGame" expanded="True">
+            <Node name="MyGame" expanded="True">
+              <Node name="References" expanded="True" />
+              <Node name="src" expanded="True">
+                <Node name="model" expanded="True">
+                  <Node name="Player.cs" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
 </Properties>

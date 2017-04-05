@@ -291,13 +291,13 @@ namespace battleship
                     MenuController.HandleSetupMenuInput();
                     break;
                 case GameState.Deploying:
-                    HandleDeploymentInput();
+					DeploymentController.HandleDeploymentInput ();
                     break;
                 case GameState.Discovering:
-                    HandleDiscoveryInput();
+                    DiscoveryController.HandleDiscoveryInput();
                     break;
                 case GameState.EndingGame:
-                    HandleEndOfGameInput();
+                    EndingGameController.HandleEndOfGameInput();
                     break;
                 case GameState.ViewingHighScores:
                     HighScoreController.HandleHighScoreInput();
@@ -327,13 +327,13 @@ namespace battleship
                     MenuController.DrawSettings();
                     break;
                 case GameState.Deploying:
-                    DrawDeployment();
+                    DeploymentController.DrawDeployment();
                     break;
                 case GameState.Discovering:
-                    DrawDiscovery();
+                    DiscoveryController.DrawDiscovery();
                     break;
                 case GameState.EndingGame:
-                    DrawEndOfGame();
+                    EndingGameController.DrawEndOfGame();
                     break;
                 case GameState.ViewingHighScores:
                     HighScoreController.DrawHighScores();

@@ -164,7 +164,7 @@ namespace battleship
 		// FixMe: Unused code? or Duplicate?
         public IEnumerator<Ship> GetShipEnumerator()
         {
-            Ship[] result;
+            Ship[] result = new Ship [_Ships.Values.Count + 1];
             _Ships.Values.CopyTo(result, 0);
             List<Ship> lst = new List<Ship>();
             lst.AddRange(result);

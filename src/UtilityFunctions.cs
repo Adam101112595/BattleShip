@@ -149,11 +149,11 @@ namespace battleship
                     Color fillColor = Color.White;
                     bool draw;
                     draw = true;
-                    switch (grid.Item[row, col])
+                    switch (grid[row, col])
                     {
-                        case TileView.Ship:
-                            draw = false;
-                            break;
+                        //case TileView.Ship:
+                        //    draw = false;
+                        //    break;
                         case TileView.Miss:
                             if (small)
                             {
@@ -254,7 +254,7 @@ namespace battleship
 
         }
 
-        private string _message;
+        private static string _message;
 
         // '' <summary>
         // '' The message to display
@@ -283,7 +283,7 @@ namespace battleship
         // '' </summary>
         public static void DrawBackground()
         {
-            switch (CurrentState)
+            switch (GameController.CurrentState)
             {
                 case GameState.ViewingMainMenu:
                 case GameState.ViewingGameMenu:
@@ -315,7 +315,7 @@ namespace battleship
             UtilityFunctions.AddAnimation(row, col, "Splash");
         }
 
-        private List<Sprite> _Animations = new List<Sprite>();
+        private static List<Sprite> _Animations = new List<Sprite>();
 
         private static void AddAnimation(int row, int col, string image)
         {
