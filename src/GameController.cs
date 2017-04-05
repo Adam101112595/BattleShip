@@ -89,8 +89,8 @@ namespace battleship
                 }
                 _human = new Player(_theGame);
                 // AddHandler _human.PlayerGrid.Changed, AddressOf GridChanged
-                _ai.PlayerGrid.Changed += new System.EventHandler(GridChanged);
-                _theGame.AttackCompleted += new System.EventHandler(AttackCompleted);
+                _ai.PlayerGrid.Changed += GridChanged;
+                _theGame.AttackCompleted += AttackCompleted;
                 GameController.AddNewState(GameState.Deploying);
             }
 
@@ -102,8 +102,8 @@ namespace battleship
         public static void EndGame()
         {
             // RemoveHandler _human.PlayerGrid.Changed, AddressOf GridChanged
-            _ai.PlayerGrid.Changed -= new System.EventHandler(GridChanged);
-            _theGame.AttackCompleted -= new System.EventHandler(AttackCompleted);
+            _ai.PlayerGrid.Changed -= GridChanged;
+            _theGame.AttackCompleted -= AttackCompleted;
         }
 
         // '' <summary>

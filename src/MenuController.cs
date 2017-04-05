@@ -12,7 +12,11 @@ namespace battleship
     class MenuController
     {
 
-        private static readonly string[] _menuStructure;
+		private static readonly string [] [] _menuStructure = {
+			new string[] { "PLAY", "SETUP", "SCORES", "QUIT"},
+			new string[] { "RETURN", "SURRENDER", "QUIT" },
+			new string[] { "EASY", "MEDIUM", "HARD" }};
+
 
         private const int MENU_TOP = 575;
 
