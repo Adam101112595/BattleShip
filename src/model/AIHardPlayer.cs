@@ -353,8 +353,7 @@ namespace battleship
                 while ((_Targets.Count > 0))
                 {
                     current = _Targets.Pop();
-                    if (((current.ShotAt.Row == row)
-                                || (current.ShotAt.Column == column)))
+                    if (((current.ShotAt.Row == row) || (current.ShotAt.Column == column)))
                     {
                         _Match.Push(current);
                     }
@@ -381,11 +380,7 @@ namespace battleship
                 // '' <param name="row">the row of the targets location</param>
                 // '' <param name="column">the column of the targets location</param>
 		private void AddTarget(int row, int column) {
-                if (((row >= 0)
-                            && ((column >= 0)
-                            && ((row < EnemyGrid.Height)
-                            && ((column < EnemyGrid.Width)
-                            && (EnemyGrid[row, column] == TileView.Sea))))))
+                if (((row >= 0) && ((column >= 0) && ((row < EnemyGrid.Height) && ((column < EnemyGrid.Width) && (EnemyGrid[row, column] == TileView.Sea))))))
                 {
                     _Targets.Push(new Target(new Location(row, column), _CurrentTarget.ShotAt));
                 }
