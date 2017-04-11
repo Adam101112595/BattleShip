@@ -96,6 +96,8 @@ public static void StartGame ()
 			_theGame.AttackCompleted += AttackCompleted;
 
 			AddNewState (GameState.Deploying);
+
+
 		}
 
 
@@ -211,7 +213,7 @@ public static void StartGame ()
             // deploy the players
             _theGame.AddDeployedPlayer(_human);
             _theGame.AddDeployedPlayer(_ai);
-            GameController.SwitchState(GameState.Discovering);
+            SwitchState(GameState.Discovering);
         }
 
         // '' <summary>
@@ -257,12 +259,12 @@ public static void StartGame ()
                 case ResultOfAttack.Miss:
                     if ((_theGame.Player == ComputerPlayer))
                     {
-                        GameController.AIAttack();
+                       AIAttack();
                     }
 
                     break;
                 case ResultOfAttack.GameOver:
-                    GameController.SwitchState(GameState.EndingGame);
+                    SwitchState(GameState.EndingGame);
                     break;
             }
         }

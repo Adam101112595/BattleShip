@@ -77,8 +77,7 @@ namespace battleship
         public AttackResult Shoot(int row, int col)
         {
             AttackResult newAttack;
-            int otherPlayer = ((_playerIndex + 1)
-                        % 2);
+            int otherPlayer = ((_playerIndex + 1) % 2);
             newAttack = Player.Shoot(row, col);
             // Will exit the game when all players ships are destroyed
             if (_players[otherPlayer].IsDestroyed)
