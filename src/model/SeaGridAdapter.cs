@@ -29,13 +29,15 @@ namespace battleship
 		// '' <param name="e">what needs to be redrawn</param>
 		private void MyGrid_Changed (object sender, EventArgs e)
 		{
-			Changed (this, e);
+			if (Changed != null) {
+				Changed (this, e);
+			}
 		}
 
 		#region "ISeaGrid Members"
 
 		// '' <summary>
-		// '' Changes the discovery grid. Where there is a ship we will sea water FixME: This Pun
+		// '' Changes the discovery grid. Where there is a ship we will sea water
 		// '' </summary>
 		// '' <param name="x">tile x coordinate</param>
 		// '' <param name="y">tile y coordinate</param>

@@ -5,42 +5,32 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="src\model\AttackResult.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="src\model\Direction.cs">
     <Files>
-      <File FileName="src\GameMain.cs" Line="13" Column="30" />
+      <File FileName="src\GameMain.cs" Line="18" Column="1" />
       <File FileName="src\model\AIHardPlayer.cs" Line="13" Column="2" />
       <File FileName="src\model\AIMediumPlayer.cs" Line="1" Column="1" />
-      <File FileName="src\model\ISeaGrid.cs" Line="14" Column="3" />
-      <File FileName="src\model\SeaGrid.cs" Line="1" Column="1" />
-      <File FileName="src\model\SeaGridAdapter.cs" Line="1" Column="1" />
-      <File FileName="src\model\Tile.cs" Line="1" Column="1" />
-      <File FileName="src\DeploymentController.cs" Line="47" Column="25" />
-      <File FileName="src\DiscoveryController.cs" Line="24" Column="31" />
+      <File FileName="src\model\ISeaGrid.cs" Line="43" Column="2" />
+      <File FileName="src\model\SeaGrid.cs" Line="104" Column="1" />
+      <File FileName="src\model\SeaGridAdapter.cs" Line="77" Column="49" />
+      <File FileName="src\model\Tile.cs" Line="111" Column="18" />
+      <File FileName="src\DeploymentController.cs" Line="203" Column="27" />
+      <File FileName="src\DiscoveryController.cs" Line="79" Column="1" />
       <File FileName="src\EndingGameController.cs" Line="8" Column="2" />
-      <File FileName="src\GameController.cs" Line="85" Column="11" />
-      <File FileName="src\GameResources.cs" Line="167" Column="34" />
-      <File FileName="src\HighScoreController.cs" Line="189" Column="46" />
-      <File FileName="src\MenuController.cs" Line="81" Column="23" />
-      <File FileName="src\UtilityFunctions.cs" Line="344" Column="42" />
-      <File FileName="src\model\AIPlayer.cs" Line="4" Column="2" />
-      <File FileName="src\model\Player.cs" Line="164" Column="24" />
-      <File FileName="src\model\AttackResult.cs" Line="89" Column="32" />
+      <File FileName="src\GameController.cs" Line="88" Column="30" />
+      <File FileName="src\GameResources.cs" Line="172" Column="3" />
+      <File FileName="src\HighScoreController.cs" Line="1" Column="1" />
+      <File FileName="src\MenuController.cs" Line="73" Column="1" />
+      <File FileName="src\UtilityFunctions.cs" Line="297" Column="14" />
+      <File FileName="src\model\AIPlayer.cs" Line="12" Column="21" />
+      <File FileName="src\model\Player.cs" Line="177" Column="32" />
+      <File FileName="src\model\AttackResult.cs" Line="68" Column="26" />
+      <File FileName="src\model\Ship.cs" Line="117" Column="1" />
+      <File FileName="src\model\ShipName.cs" Line="8" Column="17" />
+      <File FileName="src\model\TileView.cs" Line="14" Column="37" />
+      <File FileName="src\model\AIOption.cs" Line="6" Column="2" />
+      <File FileName="src\model\Direction.cs" Line="8" Column="9" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="MyGame" expanded="True">
-            <Node name="MyGame" expanded="True">
-              <Node name="src" expanded="True">
-                <Node name="model" expanded="True">
-                  <Node name="AttackResult.cs" selected="True" />
-                </Node>
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MultiItemStartupConfigurations />
 </Properties>

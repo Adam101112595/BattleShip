@@ -172,8 +172,6 @@ namespace battleship
             }
         }
 
-
-		// FixMe: Unused code? or Duplicate?
         public IEnumerator<Ship> GetShipEnumerator()
         {
             Ship[] result = new Ship [_Ships.Values.Count + 1];
