@@ -36,24 +36,20 @@ namespace battleship
         // '' </summary>
         private static void DoAttack()
         {
-            Point2D mouse;
+            Point2D mouse = default (Point2D);
             mouse = SwinGame.MousePosition();
-            // Calculate the row/col clicked
-            int row;
-            int col;
-            row = Convert.ToInt32(Math.Floor(((mouse.Y - UtilityFunctions.FIELD_TOP) / (UtilityFunctions.CELL_HEIGHT + UtilityFunctions.CELL_GAP))));
-            col = Convert.ToInt32(Math.Floor(((mouse.X - UtilityFunctions.FIELD_LEFT) / (UtilityFunctions.CELL_WIDTH + UtilityFunctions.CELL_GAP))));
+			//Calculate the row/col clicked
+			int row = 0;
+			int col = 0;
+			row = Convert.ToInt32 (Math.Floor ((mouse.Y - UtilityFunctions.FIELD_TOP) / (UtilityFunctions.CELL_HEIGHT + UtilityFunctions.CELL_GAP)));
+			col = Convert.ToInt32 (Math.Floor ((mouse.X - UtilityFunctions.FIELD_LEFT) / (UtilityFunctions.CELL_WIDTH + UtilityFunctions.CELL_GAP)));
 
-            if (((row >= 0) && (row < GameController.HumanPlayer.EnemyGrid.Height)))
-            {
-                if (((col >= 0) && (col < GameController.HumanPlayer.EnemyGrid.Width)))
-                {
-                    GameController.Attack(row, col);
-                }
-
-            }
-
-        }
+			if (row >= 0 & row < GameController.HumanPlayer.EnemyGrid.Height) {
+				if (col >= 0 & col < GameController.HumanPlayer.EnemyGrid.Width) {
+					GameController.Attack (row, col);
+				}
+			}
+		}
 
         // '' <summary>
         // '' Draws the game during the attack phase.
@@ -64,8 +60,7 @@ namespace battleship
             const int SHOTS_TOP = 157;
             const int HITS_TOP = 206;
             const int SPLASH_TOP = 256;
-            if (((SwinGame.KeyDown(KeyCode.vk_LSHIFT) || SwinGame.KeyDown(KeyCode.vk_RSHIFT))
-                        && SwinGame.KeyDown(KeyCode.vk_c)))
+            if (((SwinGame.KeyDown(KeyCode.vk_LSHIFT) || SwinGame.KeyDown(KeyCode.vk_RSHIFT)) && SwinGame.KeyDown(KeyCode.vk_c)))
             {
                 UtilityFunctions.DrawField(GameController.HumanPlayer.EnemyGrid, GameController.ComputerPlayer, true);
             }
