@@ -335,6 +335,7 @@ public class AIHardPlayer : AIPlayer
 				}
 			}
 
+<<<<<<< HEAD
 			foreach (Target t in _NoMatch) {
 				_Targets.Push (t);
 			}
@@ -355,6 +356,61 @@ public class AIHardPlayer : AIPlayer
 			if ((row >= 0 && column >= 0 && row < EnemyGrid.Height && column < EnemyGrid.Width && EnemyGrid [row, column] == TileView.Sea)) {
 				_Targets.Push (new Target (new Location (row, column), _CurrentTarget.ShotAt));
 			}
+=======
+                // '' <summary>
+                // '' MoveToTopOfStack will re-order the stack by checkin the coordinates of each target
+                // '' If they have the right column or row values it will be moved to the _Match stack else 
+                // '' put it on the _NoMatch stack. Then move all the targets from the _NoMatch stack back on the 
+                // '' _Targets stack, these will be at the bottom making them less important. The move all the
+                // '' targets from the _Match stack on the _Targets stack, these will be on the top and will there
+                // '' for be shot at first
+                // '' </summary>
+                // '' <param name="row">the row of the optimisation</param>
+                // '' <param name="column">the column of the optimisation</param>
+		private void MoveToTopOfStack(int row, int column) {
+                Stack<Target> _NoMatch = new Stack<Target>();
+                Stack<Target> _Match = new Stack<Target>();
+                Target current;
+                while ((_Targets.Count > 0))
+                {
+                    current = _Targets.Pop();
+                    if (((current.ShotAt.Row == row)
+                                || (current.ShotAt.Column == column)))
+                    {
+                        _Match.Push(current);
+                    }
+                    else
+                    {
+                        _NoMatch.Push(current);
+                    }
+
+                }
+
+                foreach (Target t in _NoMatch)
+                {
+                    _Targets.Push(t);
+                }
+
+                foreach (Target t in _Match)
+                {
+                    _Targets.Push(t);
+                }
+		}
+                // '' <summary>
+                // '' AddTarget will add the targets it will shoot onto a stack
+                // '' </summary>
+                // '' <param name="row">the row of the targets location</param>
+                // '' <param name="column">the column of the targets location</param>
+		private void AddTarget(int row, int column) {
+                if (((row >= 0)
+                            && ((column >= 0)
+                            && ((row < EnemyGrid.Height)
+                            && ((column < EnemyGrid.Width)
+                            && (EnemyGrid[row, column] == TileView.Sea))))))
+                {
+                    _Targets.Push(new Target(new Location(row, column), _CurrentTarget.ShotAt));
+                }
+>>>>>>> parent of 624e3c7... commit
 		}
 
 	}
