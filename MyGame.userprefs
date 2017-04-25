@@ -1,0 +1,44 @@
+﻿<Properties StartupConfiguration="{871B5A90-103A-46A5-BBB9-07C02B9851D1}|Default">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug-Mac|x86" />
+  <MonoDevelop.Ide.ItemProperties.MyGame PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="E:\Swinburne\tools and practs\BattleShip\src\model\Player.cs" line="252" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+<<<<<<< HEAD
+  <MonoDevelop.Ide.Workbench ActiveDocument="src\model\AIEasyPlayer.cs">
+    <Files>
+      <File FileName="src\model\AIEasyPlayer.cs" Line="36" Column="25" />
+=======
+  <MonoDevelop.Ide.Workbench ActiveDocument="src\GameController.cs">
+    <Files>
+      <File FileName="src\GameMain.cs" Line="13" Column="13" />
+      <File FileName="src\model\AIHardPlayer.cs" Line="229" Column="5" />
+      <File FileName="src\model\AIMediumPlayer.cs" Line="41" Column="33" />
+      <File FileName="src\model\ISeaGrid.cs" Line="4" Column="17" />
+      <File FileName="src\model\SeaGrid.cs" Line="198" Column="3" />
+      <File FileName="src\model\SeaGridAdapter.cs" Line="7" Column="21" />
+      <File FileName="src\DeploymentController.cs" Line="197" Column="21" />
+      <File FileName="src\EndingGameController.cs" Line="41" Column="2" />
+      <File FileName="src\GameController.cs" Line="135" Column="58" />
+      <File FileName="src\GameResources.cs" Line="231" Column="14" />
+      <File FileName="src\HighScoreController.cs" Line="25" Column="25" />
+      <File FileName="src\MenuController.cs" Line="193" Column="15" />
+      <File FileName="src\UtilityFunctions.cs" Line="11" Column="5" />
+      <File FileName="src\model\AIPlayer.cs" Line="120" Column="1" />
+      <File FileName="src\model\Player.cs" Line="112" Column="3" />
+      <File FileName="src\model\AttackResult.cs" Line="68" Column="26" />
+      <File FileName="src\model\Ship.cs" Line="140" Column="29" />
+      <File FileName="src\model\ShipName.cs" Line="15" Column="28" />
+      <File FileName="src\model\TileView.cs" Line="16" Column="13" />
+      <File FileName="src\model\AIOption.cs" Line="4" Column="4" />
+      <File FileName="src\model\Direction.cs" Line="8" Column="9" />
+      <File FileName="src\model\BattleShipsGame.cs" Line="80" Column="56" />
+      <File FileName="src\GameState.cs" Line="14" Column="23" />
+      <File FileName="src\model\ResultOfAttack.cs" Line="5" Column="2" />
+>>>>>>> origin/Zac-C#
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+</Properties>
