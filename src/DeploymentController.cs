@@ -134,7 +134,7 @@ namespace battleship
                     }
                     catch (Exception ex)
                     {
-                        Audio.PlaySoundEffect(GameResources.GameSound("Error"));
+						Audio.PlaySoundEffect(GameResources.GameSound("Error"), GameController.Volume);
                         UtilityFunctions.Message = ex.Message;
                     }
 

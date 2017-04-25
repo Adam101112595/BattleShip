@@ -14,20 +14,22 @@ namespace battleship
 
 		private static readonly string [] [] _menuStructure = {
 		new string[] {
-			"PLAY",
-			"SETUP",
-			"SCORES",
-			"QUIT"
+				"PLAY",
+				"SETUP",
+				"SCORES",
+				"QUIT",
+				"AUDIO"
 		},
 		new string[] {
-			"RETURN",
-			"SURRENDER",
-			"QUIT"
+				"RETURN",
+				"SURRENDER",
+				"QUIT",
+				"AUDIO"
 		},
 		new string[] {
-			"EASY",
-			"MEDIUM",
-			"HARD"
+				"EASY",
+				"MEDIUM",
+				"HARD"
 		}
 
 	};
@@ -46,6 +48,7 @@ namespace battleship
 		private const int MAIN_MENU_PLAY_BUTTON = 0;
 		private const int MAIN_MENU_SETUP_BUTTON = 1;
 		private const int MAIN_MENU_TOP_SCORES_BUTTON = 2;
+		private const int MAIN_MENU_AUDIO_BUTTON = 4;
 
 		private const int MAIN_MENU_QUIT_BUTTON = 3;
 		private const int SETUP_MENU_EASY_BUTTON = 0;
@@ -55,6 +58,7 @@ namespace battleship
 		private const int SETUP_MENU_EXIT_BUTTON = 3;
 		private const int GAME_MENU_RETURN_BUTTON = 0;
 		private const int GAME_MENU_SURRENDER_BUTTON = 1;
+		private const int GAME_MENU_AUDIO_BUTTON = 3;
 
 		private const int GAME_MENU_QUIT_BUTTON = 2;
 		private static readonly Color MENU_COLOR = SwinGame.RGBAColor (2, 167, 252, 255);
@@ -264,6 +268,9 @@ namespace battleship
 			case MAIN_MENU_QUIT_BUTTON:
 				GameController.EndCurrentState ();
 				break;
+			case MAIN_MENU_AUDIO_BUTTON:
+				GameController.VolAdjust ();
+				break;
 			}
 		}
 
@@ -306,6 +313,9 @@ namespace battleship
 				break;
 			case GAME_MENU_QUIT_BUTTON:
 				GameController.AddNewState (GameState.Quitting);
+				break;
+			case GAME_MENU_AUDIO_BUTTON:
+				GameController.VolAdjust ();
 				break;
 			}
 		}

@@ -58,6 +58,14 @@ namespace battleship
 			_state.Push (GameState.ViewingMainMenu);
 		}
 
+		//VOLUME SETUP
+		private static int _volume = 1;
+
+		public static int Volume {
+			get { return _volume; }
+
+		}
+
 		/// <summary>
 		/// Starts a new game.
 		/// </summary>
@@ -123,7 +131,7 @@ namespace battleship
 				UtilityFunctions.AddExplosion (row, column);
 			}
 
-			Audio.PlaySoundEffect (GameResources.GameSound ("Hit"));
+			Audio.PlaySoundEffect (GameResources.GameSound ("Hit"), _volume);
 
 			UtilityFunctions.DrawAnimationSequence ();
 		}
@@ -134,7 +142,7 @@ namespace battleship
 				UtilityFunctions.AddSplash (row, column);
 			}
 
-			Audio.PlaySoundEffect (GameResources.GameSound ("Miss"));
+			Audio.PlaySoundEffect (GameResources.GameSound ("Miss"), _volume);
 
 			UtilityFunctions.DrawAnimationSequence ();
 		}
@@ -161,12 +169,12 @@ namespace battleship
 			switch (result.Value) {
 			case ResultOfAttack.Destroyed:
 				PlayHitSequence (result.Row, result.Column, isHuman);
-				Audio.PlaySoundEffect (GameResources.GameSound ("Sink"));
+				Audio.PlaySoundEffect (GameResources.GameSound ("Sink"), _volume);
 
 				break;
 			case ResultOfAttack.GameOver:
 				PlayHitSequence (result.Row, result.Column, isHuman);
-				Audio.PlaySoundEffect (GameResources.GameSound ("Sink"));
+				Audio.PlaySoundEffect (GameResources.GameSound ("Sink"), _volume);
 
 				while (Audio.SoundEffectPlaying (GameResources.GameSound ("Sink"))) {
 					SwinGame.Delay (10);
@@ -174,9 +182,9 @@ namespace battleship
 				}
 
 				if (HumanPlayer.IsDestroyed) {
-					Audio.PlaySoundEffect (GameResources.GameSound ("Lose"));
+					Audio.PlaySoundEffect (GameResources.GameSound ("Lose"), _volume);
 				} else {
-					Audio.PlaySoundEffect (GameResources.GameSound ("Winner"));
+					Audio.PlaySoundEffect (GameResources.GameSound ("Winner"), _volume);
 				}
 
 				break;
@@ -187,7 +195,7 @@ namespace battleship
 				PlayMissSequence (result.Row, result.Column, isHuman);
 				break;
 			case ResultOfAttack.ShotAlready:
-				Audio.PlaySoundEffect (GameResources.GameSound ("Error"));
+				Audio.PlaySoundEffect (GameResources.GameSound ("Error"), _volume);
 				break;
 			}
 		}
@@ -375,5 +383,15 @@ namespace battleship
 			_aiSetting = setting;
 		}
 
+		public static void VolAdjust ()
+		{
+			if (SwinGame.MusicVolume () > 0) {
+				SwinGame.SetMusicVolume (0);
+				_volume = 0;
+			} else {
+				SwinGame.SetMusicVolume (1);
+				_volume = 1;
+			}
+		}
 	}
 }
