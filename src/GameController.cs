@@ -85,16 +85,9 @@ namespace battleship
 			case AIOption.Medium:
 				_ai = new AIMediumPlayer (_theGame);
 				break;
-<<<<<<< HEAD
-			case AIOption.Easy:
-				_ai = new AIEasyPlayer (_theGame);
-				break;
-
-=======
 			case AIOption.Hard:
 				_ai = new AIHardPlayer (_theGame);
 				break;
->>>>>>> origin/Zac-C#
 			default:
 				_ai = new AIHardPlayer (_theGame);
 				break;

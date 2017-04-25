@@ -3,15 +3,8 @@
   <MonoDevelop.Ide.ItemProperties.MyGame PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="E:\Swinburne\tools and practs\BattleShip\src\model\Player.cs" line="252" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-<<<<<<< HEAD
-  <MonoDevelop.Ide.Workbench ActiveDocument="src\model\AIEasyPlayer.cs">
-    <Files>
-      <File FileName="src\model\AIEasyPlayer.cs" Line="36" Column="25" />
-=======
   <MonoDevelop.Ide.Workbench ActiveDocument="src\GameController.cs">
     <Files>
       <File FileName="src\GameMain.cs" Line="13" Column="13" />
@@ -38,7 +31,7 @@
       <File FileName="src\model\BattleShipsGame.cs" Line="80" Column="56" />
       <File FileName="src\GameState.cs" Line="14" Column="23" />
       <File FileName="src\model\ResultOfAttack.cs" Line="5" Column="2" />
->>>>>>> origin/Zac-C#
     </Files>
   </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
 </Properties>
