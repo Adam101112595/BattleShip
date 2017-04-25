@@ -155,30 +155,19 @@ namespace battleship
             int ANI_W = 546;
             int ANI_H = 327;
             int ANI_V_CELL_COUNT = 6;
-            Audio.PlaySoundEffect(_StartSound);
+			Audio.PlaySoundEffect(_StartSound, GameController.Volume);
             SwinGame.Delay(200);
 
             int i;
             for (i = 0; (i <= (ANI_CELL_COUNT - 1)); i++) {
                 SwinGame.DrawBitmap(_Background, 0, 0);
-				//FixMe
-              //SwinGame.DrawBitmapPart(_Animation, (i % ANI_V_CELL_COUNT), i, ANI_V_CELL_COUNT) * ANI_W);
-            //    ((i % ANI_V_CELL_COUNT) * ANI_H);
-             //   ANI_W;
-            //    ANI_H;
-              //  ANI_X;
-               // ANI_Y;
-
 				SwinGame.DrawBitmapPart (_Animation, (i / ANI_V_CELL_COUNT) * ANI_W, (i % ANI_V_CELL_COUNT) * ANI_H, ANI_W, ANI_H, ANI_X, ANI_Y);
+				SwinGame.Delay (20);
+				SwinGame.RefreshScreen ();
+				SwinGame.ProcessEvents ();
+			}
 
-
-
-			SwinGame.Delay(20);
-                SwinGame.RefreshScreen();
-                SwinGame.ProcessEvents();
-            }
-
-            SwinGame.Delay(1500);
+			SwinGame.Delay(1500);
         }
 
         private static void ShowMessage(string message, int number) {

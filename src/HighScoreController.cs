@@ -23,7 +23,7 @@ namespace battleship
         // '' The score structure is used to keep the name and
         // '' score of the top players together.
         // '' </summary>
-        private struct Score
+        private struct Score : IComparable
         {
 
             public string Name;

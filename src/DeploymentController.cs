@@ -75,14 +75,14 @@ namespace battleship
             if (SwinGame.MouseClicked(MouseButton.LeftButton))
             {
                 ShipName selected;
-                selected = DeploymentController.GetShipMouseIsOver();
+                selected = GetShipMouseIsOver();
                 if ((selected != ShipName.None))
                 {
                     _selectedShip = selected;
                 }
                 else
                 {
-                    DeploymentController.DoDeployClick();
+                    DoDeployClick();
                 }
 
                 if ((GameController.HumanPlayer.ReadyToDeploy && UtilityFunctions.IsMouseInRectangle(PLAY_BUTTON_LEFT, TOP_BUTTONS_TOP, PLAY_BUTTON_WIDTH, TOP_BUTTONS_HEIGHT)))
@@ -91,7 +91,7 @@ namespace battleship
                 }
                 else if (UtilityFunctions.IsMouseInRectangle(UP_DOWN_BUTTON_LEFT, TOP_BUTTONS_TOP, DIR_BUTTONS_WIDTH, TOP_BUTTONS_HEIGHT))
                 {
-                    _currentDirection = Direction.LeftRight;
+					_currentDirection = Direction.UpDown;
                 }
                 else if (UtilityFunctions.IsMouseInRectangle(LEFT_RIGHT_BUTTON_LEFT, TOP_BUTTONS_TOP, DIR_BUTTONS_WIDTH, TOP_BUTTONS_HEIGHT))
                 {
@@ -121,10 +121,8 @@ namespace battleship
             // Calculate the row/col clicked
             int row;
             int col;
-            row = Convert.ToInt32(Math.Floor((mouse.Y
-                                / (UtilityFunctions.CELL_HEIGHT + UtilityFunctions.CELL_GAP))));
-            col = Convert.ToInt32(Math.Floor(((mouse.X - UtilityFunctions.FIELD_LEFT)
-                                / (UtilityFunctions.CELL_WIDTH + UtilityFunctions.CELL_GAP))));
+			row = Convert.ToInt32(Math.Floor(((mouse.Y-130)/ (UtilityFunctions.CELL_HEIGHT + UtilityFunctions.CELL_GAP))));
+            col = Convert.ToInt32(Math.Floor(((mouse.X - UtilityFunctions.FIELD_LEFT)/ (UtilityFunctions.CELL_WIDTH + UtilityFunctions.CELL_GAP))));
             if (((row >= 0) && (row < GameController.HumanPlayer.PlayerGrid.Height)))
             {
                 if (((col >= 0) && (col < GameController.HumanPlayer.PlayerGrid.Width)))
@@ -136,7 +134,7 @@ namespace battleship
                     }
                     catch (Exception ex)
                     {
-                        Audio.PlaySoundEffect(GameResources.GameSound("Error"));
+						Audio.PlaySoundEffect(GameResources.GameSound("Error"), GameController.Volume);
                         UtilityFunctions.Message = ex.Message;
                     }
 

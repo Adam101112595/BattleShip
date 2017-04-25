@@ -19,18 +19,15 @@ namespace battleship
         // '' </summary>
         private enum AIStates
         {
-
-            Searching,
-
-            TargetingShip,
+			Searching,
+			TargetingShip,
         }
 
         private AIStates _CurrentState = AIStates.Searching;
 
         private Stack<Location> _Targets = new Stack<Location>();
 
-        public AIMediumPlayer(BattleShipsGame controller) :
-                base(controller)
+        public AIMediumPlayer(BattleShipsGame controller) : base(controller)
         {
         }
 
@@ -41,35 +38,27 @@ namespace battleship
         // '' </summary>
         // '' <param name="row">the generated row</param>
         // '' <param name="column">the generated column</param>
-        protected override void GenerateCoords(ref int row, ref int column)
-        {
-            for (
-            ; ((row < 0)
-                        || ((column < 0)
-                        || ((row >= EnemyGrid.Height)
-                        || ((column >= EnemyGrid.Width)
-                        || (EnemyGrid[row, column] != TileView.Sea)))));
-            )
-            {
-                switch (_CurrentState)
-                {
-                    case AIStates.Searching:
-                        this.SearchCoords(ref row, ref column);
-                        break;
-                    case AIStates.TargetingShip:
-                        this.TargetCoords(ref row, ref column);
-                        break;
-                    default:
-                        throw new ApplicationException("AI has gone in an imvalid state");
-                }
-            }
-
-        }
+	protected override void GenerateCoords (ref int row, ref int column)
+		{
+			do {
+				//AI Check
+				switch (_CurrentState) {
+				case AIStates.Searching:
+					SearchCoords (ref row, ref column);
+					break;
+				case AIStates.TargetingShip:
+					TargetCoords (ref row, ref column);
+					break;
+				default:
+					throw new ApplicationException ("AI has gone in an imvalid state");
+				}
+			} while ((row < 0 || column < 0 || row >= EnemyGrid.Height || column >= EnemyGrid.Width || EnemyGrid [row, column] != TileView.Sea));
+		}
 
         // '' <summary>
         // '' TargetCoords is used when a ship has been hit and it will try and destroy
         // '' this ship
-        // '' </summary>
+         // '' </summary>
         // '' <param name="row">row generated around the hit tile</param>
         // '' <param name="column">column generated around the hit tile</param>
         private void TargetCoords(ref int row, ref int column)
@@ -127,11 +116,7 @@ namespace battleship
         // '' <param name="column">the column of the targets location</param>
         private void AddTarget(int row, int column)
         {
-            if (((row >= 0)
-                        && ((column >= 0)
-                        && ((row < EnemyGrid.Height)
-                        && ((column < EnemyGrid.Width)
-                        && (EnemyGrid[row, column] == TileView.Sea))))))
+            if (((row >= 0) && ((column >= 0) && ((row < EnemyGrid.Height) && ((column < EnemyGrid.Width) && (EnemyGrid[row, column] == TileView.Sea))))))
             {
                 _Targets.Push(new Location(row, column));
             }
