@@ -155,7 +155,7 @@ namespace battleship
             int ANI_W = 546;
             int ANI_H = 327;
             int ANI_V_CELL_COUNT = 6;
-            Audio.PlaySoundEffect(_StartSound);
+			Audio.PlaySoundEffect(_StartSound, GameController.Volume);
             SwinGame.Delay(200);
 
             int i;
