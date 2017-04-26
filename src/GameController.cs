@@ -84,7 +84,7 @@ namespace battleship
 			//create the players
 			switch (_aiSetting) {
 				case AIOption.Easy:
-				_ai = new AIMediumPlayer (_theGame);
+				_ai = new AIEasyPlayer (_theGame);
 				break;
 			case AIOption.Medium:
 				_ai = new AIMediumPlayer (_theGame);
