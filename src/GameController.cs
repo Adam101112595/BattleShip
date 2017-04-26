@@ -59,9 +59,10 @@ namespace battleship
 		}
 
 		//VOLUME SETUP
-		private static int _volume = 1;
+		private static float _volume = 1;
+		private static int _check = 0;
 
-		public static int Volume {
+		public static float Volume {
 			get { return _volume; }
 
 		}
@@ -82,6 +83,9 @@ namespace battleship
 
 			//create the players
 			switch (_aiSetting) {
+				case AIOption.Easy:
+				_ai = new AIMediumPlayer (_theGame);
+				break;
 			case AIOption.Medium:
 				_ai = new AIMediumPlayer (_theGame);
 				break;
@@ -89,7 +93,7 @@ namespace battleship
 				_ai = new AIHardPlayer (_theGame);
 				break;
 			default:
-				_ai = new AIHardPlayer (_theGame);
+				_ai = new AIMediumPlayer (_theGame);
 				break;
 			}
 
@@ -385,12 +389,26 @@ namespace battleship
 
 		public static void VolAdjust ()
 		{
-			if (SwinGame.MusicVolume () > 0) {
-				SwinGame.SetMusicVolume (0);
-				_volume = 0;
+			if (_check == 0) {
+				SwinGame.SetMusicVolume (0.0f);
+				_volume = 0.0f;
+				_check++;
+			} else if (_check == 1) {
+				SwinGame.SetMusicVolume (0.3f);
+				_volume = 0.3f;
+				_check++;
+			} else if (_check == 2) {
+				SwinGame.SetMusicVolume (0.5f);
+				_volume = 0.5f;
+				_check++;
+			} else if (_check == 3) {
+				SwinGame.SetMusicVolume (0.7f);
+				_volume = 0.7f;
+				_check++;
 			} else {
-				SwinGame.SetMusicVolume (1);
-				_volume = 1;
+				SwinGame.SetMusicVolume (1.0f);
+				_volume = 1.0f;
+				_check = 0;
 			}
 		}
 	}

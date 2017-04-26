@@ -9,16 +9,16 @@
     <Files>
       <File FileName="src\GameMain.cs" Line="13" Column="13" />
       <File FileName="src\model\AIHardPlayer.cs" Line="229" Column="5" />
-      <File FileName="src\model\AIMediumPlayer.cs" Line="41" Column="33" />
+      <File FileName="src\model\AIMediumPlayer.cs" Line="41" Column="32" />
       <File FileName="src\model\ISeaGrid.cs" Line="4" Column="17" />
       <File FileName="src\model\SeaGrid.cs" Line="198" Column="3" />
       <File FileName="src\model\SeaGridAdapter.cs" Line="7" Column="21" />
-      <File FileName="src\DeploymentController.cs" Line="197" Column="21" />
+      <File FileName="src\DeploymentController.cs" Line="117" Column="44" />
       <File FileName="src\EndingGameController.cs" Line="41" Column="2" />
-      <File FileName="src\GameController.cs" Line="135" Column="58" />
-      <File FileName="src\GameResources.cs" Line="231" Column="14" />
+      <File FileName="src\GameController.cs" Line="184" Column="24" />
+      <File FileName="src\GameResources.cs" Line="210" Column="10" />
       <File FileName="src\HighScoreController.cs" Line="25" Column="25" />
-      <File FileName="src\MenuController.cs" Line="193" Column="15" />
+      <File FileName="src\MenuController.cs" Line="317" Column="4" />
       <File FileName="src\UtilityFunctions.cs" Line="11" Column="5" />
       <File FileName="src\model\AIPlayer.cs" Line="120" Column="1" />
       <File FileName="src\model\Player.cs" Line="112" Column="3" />
@@ -31,6 +31,7 @@
       <File FileName="src\model\BattleShipsGame.cs" Line="80" Column="56" />
       <File FileName="src\GameState.cs" Line="14" Column="23" />
       <File FileName="src\model\ResultOfAttack.cs" Line="5" Column="2" />
+      <File FileName="src\DiscoveryController.cs" Line="49" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MultiItemStartupConfigurations />
